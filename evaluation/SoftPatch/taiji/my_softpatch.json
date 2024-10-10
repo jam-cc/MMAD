@@ -1,0 +1,16 @@
+{
+  "Token": "VsnGwN4I8GlInlu0-kwSIg",
+  "business_flag": "youtu_research_xuanyuanfuxi",
+  "host_num": 1,
+  "host_gpu_num": 3,
+  "image_full_name": "mirrors.tencent.com/xlab-sustech/py3.6.8-torch-conda:lite",
+  "dataset_id": "F06A5CC1127144DE9CF3FF9BDBE77A1A",
+  "model_local_file_path": "/root/v_kokijiang/project/SoftPatch/taiji",
+  "init_cmd": " mkdir -p /youtu/youtu-public && mount -t ceph 9.22.150.83:6789,9.22.150.89:6789,9.22.145.244:6789:/group/887465/public /youtu/youtu-public -o name=group887465,secret=AQCFd41dX6IXHRAAcP1xvkHFPmflXMJPNQh1WA==",
+  "cuda_version": "11.0",
+  "start_cmd": "bash start.sh",
+  "readable_name": "softpatch-VisA" ,
+  "is_elasticity": true,
+  "enable_evicted_pulled_up": true,
+  "keep_alive": true
+}
