@@ -84,7 +84,7 @@ if __name__=="__main__":
 
     parser.add_argument("--dtype", type=str, default="fp32")
 
-    parser.add_argument("--few_shot_model", type=int, default=0)
+    parser.add_argument("--few_shot_model", type=int, default=1)
     parser.add_argument("--similar_template", action="store_true")
     parser.add_argument("--reproduce", action="store_true")
 
