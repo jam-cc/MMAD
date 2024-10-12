@@ -64,7 +64,7 @@ python llava_query.py --model-path ../../LLaVA/llava-v1.6-34b/ --dtype 4bit
 
 
 ## 👨‍💻 Todo
--[x] Release the dataset
--[x] Release the evaluation code
--[ ] Release the paper
--[ ] Release a version with images included on Hugging Face
+- [x] Release the dataset
+- [x] Release the evaluation code
+- [ ] Release the paper
+- [ ] Release a version with images included on Hugging Face
