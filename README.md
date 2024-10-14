@@ -38,7 +38,7 @@ We collected 8,366 samples from 38 classes of industrial products across 4 publi
 
 Prepare the evaluation dataset by following the instructions provided in the [README.md](dataset/README.md) file located in the dataset folder. 
 
-### 2.&#x20;
+### 2. Model Configuration
 
 Due to different MLLMs' input and output handling methods, we have created separate example files for each MLLM being tested, which can be found in the evaluation folder.
 
