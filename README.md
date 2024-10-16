@@ -1,9 +1,11 @@
 # MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection
 
-![VideoQA](https://img.shields.io/badge/Task-Industry_Inspection-red)
-![Video-MME](https://img.shields.io/badge/Dataset-MMAD-blue)
+[![Industry_Inspection](https://img.shields.io/badge/Task-Industry_Inspection-yellow)](https://github.com/M-3LAB/awesome-industrial-anomaly-detection)
+[![MMAD](https://img.shields.io/badge/Dataset-MMAD-blue)](https://arxiv.org/abs/2410.09453)
 ![Gemini](https://img.shields.io/badge/Model-Gemini--1.5-green)
-![GPT-4o](https://img.shields.io/badge/Model-GPT--4-green)
+![GPT-4o](https://img.shields.io/badge/Model-GPT--4o-green)
+
+[![arXiv](https://img.shields.io/badge/Paper-arXiv-red)]([https://arxiv.org/abs/2410.09453])
 
 [//]: # (## 💡 Highlights)
  Our benchmark responds to the following questions:
@@ -13,7 +15,7 @@
 
 ## 📜 News
 
-[//]: # (- **[2024-10-13]** MMAD paper is released.)
+- **[2024-10-16]** MMAD paper is released at [arXiv](https://arxiv.org/abs/2410.09453).
 - **[2024-10-08]** MMAD dataset and evaluation code are released.
 
 
@@ -38,7 +40,7 @@ We collected 8,366 samples from 38 classes of industrial products across 4 publi
 
 Prepare the evaluation dataset by following the instructions provided in the [README.md](dataset/README.md) file located in the dataset folder. 
 
-### 2.&#x20;
+### 2. Model Configuration
 
 Due to different MLLMs' input and output handling methods, we have created separate example files for each MLLM being tested, which can be found in the evaluation folder.
 
@@ -66,5 +68,17 @@ python llava_query.py --model-path ../../LLaVA/llava-v1.6-34b/ --dtype 4bit
 ## 👨‍💻 Todo
 - [x] Release the dataset
 - [x] Release the evaluation code
-- [ ] Release the paper
-- [ ] Release a version with images included on Hugging Face
+- [x] Release the paper
+- [ ] Release full dataset with images included on Hugging Face
+
+## BibTex Citation
+
+If you find this paper and repository useful, please cite our paper☺️.
+```bibtex
+@inproceedings{Jiang2024MMADTF,
+  title={MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection},
+  author={Xi Jiang and Jian Li and Hanqiu Deng and Yong Liu and Bin-Bin Gao and Yifeng Zhou and Jialin Li and Chengjie Wang and Feng Zheng},
+  year={2024},
+  journal={arXiv preprint arXiv:2410.09453},
+}
+```
