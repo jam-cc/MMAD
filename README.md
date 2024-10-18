@@ -5,7 +5,7 @@
 ![Gemini](https://img.shields.io/badge/Model-Gemini--1.5-green)
 ![GPT-4o](https://img.shields.io/badge/Model-GPT--4o-green)
 
-[![arXiv](https://img.shields.io/badge/Paper-arXiv-red)]([https://arxiv.org/abs/2410.09453])
+[![arXiv](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/2410.09453)
 
 [//]: # (## 💡 Highlights)
  Our benchmark responds to the following questions:
@@ -34,6 +34,10 @@ We collected 8,366 samples from 38 classes of industrial products across 4 publi
     <img src="./figs/examples.jpg" width="100%" height="100%">
 </p>
 
+## 📊 Results
+
+
+
 ## 🔮 Evaluation Pipeline
 
 ### 1. Data Preparation
@@ -56,20 +60,18 @@ Each test file uses the `--model-path` argument to specify the model, and `--few
 
 Examples:
 ```
-cd ./evaluation/Transformers
+cd ./evaluation/examples/Transformers
 python internvl_query.py --model-path ../../InternVL/pretrained/InternVL2-1B
 
-cd ./evaluation/LLaVA_Query
+cd ./evaluation/examples/LLaVA_Query
 python llava_query.py --model-path ../../LLaVA/llava-v1.6-34b/ --dtype 4bit
 ```
 
-
-
 ## 👨‍💻 Todo
-- [x] Release the dataset
+- [x] Release the dataset (manual version)
 - [x] Release the evaluation code
 - [x] Release the paper
-- [ ] Release full dataset with images included on Hugging Face
+- [ ] Release full version with images included on Hugging Face
 
 ## BibTex Citation
 
