@@ -1,11 +1,13 @@
 # MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection
 
-[![Industry_Inspection](https://img.shields.io/badge/Task-Industry_Inspection-yellow)](https://github.com/M-3LAB/awesome-industrial-anomaly-detection)
+[![Industry_Inspection](https://img.shields.io/badge/Task-Industry_Inspection-white)](https://github.com/M-3LAB/awesome-industrial-anomaly-detection)
 [![MMAD](https://img.shields.io/badge/Dataset-MMAD-blue)](https://arxiv.org/abs/2410.09453)
-![Gemini](https://img.shields.io/badge/Model-Gemini--1.5-green)
-![GPT-4o](https://img.shields.io/badge/Model-GPT--4o-green)
+[![Gemini](https://img.shields.io/badge/Model-Gemini--1.5-green)](https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/#sundar-note)
+[![GPT-4o](https://img.shields.io/badge/Model-GPT--4o-green)](https://openai.com/index/hello-gpt-4o/)
 
 [![arXiv](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/2410.09453)
+[![Hugging Face](https://img.shields.io/badge/Dataset-Hugging%20Face-yellow)](https://huggingface.co/datasets/jiang-cc/MMAD)
+
 
 [//]: # (## 💡 Highlights)
  Our benchmark responds to the following questions:
@@ -15,6 +17,7 @@
 
 ## 📜 News
 
+- **[2024-10-30]** The full dataset is released at [Hugging Face](https://huggingface.co/datasets/jiang-cc/MMAD), including images and captions. You can download the whole dataset easier now!
 - **[2024-10-16]** MMAD paper is released at [arXiv](https://arxiv.org/abs/2410.09453).
 - **[2024-10-08]** MMAD dataset and evaluation code are released.
 
@@ -34,7 +37,7 @@ We collected 8,366 samples from 38 classes of industrial products across 4 publi
     <img src="./figs/examples.jpg" width="100%" height="100%">
 </p>
 
-## 📊 Results
+[//]: # (## 📊 Results)
 
 
 
@@ -43,6 +46,8 @@ We collected 8,366 samples from 38 classes of industrial products across 4 publi
 ### 1. Data Preparation
 
 Prepare the evaluation dataset by following the instructions provided in the [README.md](dataset/README.md) file located in the dataset folder. 
+
+Or you can directly download the dataset from [Hugging Face](https://huggingface.co/datasets/jiang-cc/MMAD).
 
 ### 2. Model Configuration
 
@@ -71,7 +76,7 @@ python llava_query.py --model-path ../../LLaVA/llava-v1.6-34b/ --dtype 4bit
 - [x] Release the dataset (manual version)
 - [x] Release the evaluation code
 - [x] Release the paper
-- [ ] Release full version with images included on Hugging Face
+- [x] Release full version with images included on Hugging Face
 
 ## BibTex Citation
 
