@@ -19,7 +19,7 @@ import seaborn as sns
 sys.path.append("..")
 # from data.mvtec import ADDataset
 from helper.summary import caculate_accuracy_mmad
-from GPT4V.gpt4v import GPT4Query, instruction
+from GPT4.gpt4v import GPT4Query, instruction
 from SoftPatch.call import call_patchcore, build_patchcore
 
 # 设置环境变量 export HF_HOME=~/.cache/huggingface

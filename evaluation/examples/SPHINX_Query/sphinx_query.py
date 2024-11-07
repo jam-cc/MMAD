@@ -17,7 +17,7 @@ import sys
 import copy
 sys.path.append("..")
 from helper.summary import caculate_accuracy_mmad
-from GPT4V.gpt4v import GPT4Query, instruction
+from GPT4.gpt4v import GPT4Query, instruction
 
 # 设置环境变量 export HF_HOME=~/.cache/huggingface
 os.environ["HF_HOME"] = "~/.cache/huggingface"

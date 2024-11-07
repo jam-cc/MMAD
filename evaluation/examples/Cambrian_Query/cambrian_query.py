@@ -15,7 +15,7 @@ import sys
 sys.path.append("..")
 # from data.mvtec import ADDataset
 from helper.summary import caculate_accuracy_mmad
-from GPT4V.gpt4v import GPT4Query, instruction
+from GPT4.gpt4v import GPT4Query, instruction
 from SoftPatch.call import call_patchcore, build_patchcore
 
 from cambrian.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN

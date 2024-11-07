@@ -6,6 +6,7 @@
 + [VisA](https://github.com/amazon-science/spot-diff)(1-class setup)
 + [GoodsAD](https://github.com/jianzhang96/GoodsAD)
 
+For research purposes, we have provided a ZIP file containing all the datasets: [ZIP file](https://huggingface.co/datasets/jiang-cc/MMAD/resolve/refs%2Fpr%2F1/ALL_DATA.zip?download=true). Please note that these datasets are for research use only and should be used in accordance with their respective copyright and licensing agreements.
 
 ## Dataset Directory Structure
 

@@ -27,7 +27,7 @@ from transformers.generation import GenerationConfig
 sys.path.append("..")
 # from data.mvtec import ADDataset
 from helper.summary import caculate_accuracy_mmad
-from GPT4V.gpt4v import GPT4Query, instruction
+from GPT4.gpt4v import GPT4Query, instruction
 from LLaVA_Query.llava_query import LLaVAQuery
 
 

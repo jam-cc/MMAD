@@ -13,7 +13,7 @@ import argparse
 sys.path.append("../")
 # from data.mvtec import ADDataset
 from helper.summary import caculate_accuracy_mmad
-from GPT4V.gpt4v import GPT4Query, instruction
+from GPT4.gpt4v import GPT4Query, instruction
 
 sys.path.append("anomalygpt/code")
 from anomalygpt.code.model.openllama import OpenLLAMAPEFTModel
