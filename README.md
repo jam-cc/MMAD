@@ -47,7 +47,16 @@ We collected 8,366 samples from 38 classes of industrial products across 4 publi
 
 Prepare the evaluation dataset by following the instructions provided in the [README.md](dataset/README.md) file located in the dataset folder. 
 
-Or you can directly download the dataset from [Hugging Face](https://huggingface.co/datasets/jiang-cc/MMAD).
+Or you can directly download the dataset from [Hugging Face](https://huggingface.co/datasets/jiang-cc/MMAD). 
+```bash
+# Make sure you have git-lfs installed (https://git-lfs.com)
+git lfs install
+git clone https://huggingface.co/datasets/jiang-cc/MMAD
+```
+Or download the ZIP file:
+```bash
+wget https://huggingface.co/datasets/jiang-cc/MMAD/resolve/refs%2Fpr%2F1/ALL_DATA.zip?download=true
+```
 
 ### 2. Model Configuration
 
