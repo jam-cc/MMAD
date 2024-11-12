@@ -49,13 +49,16 @@ Prepare the evaluation dataset by following the instructions provided in the [RE
 
 Or you can directly download the dataset from [Hugging Face](https://huggingface.co/datasets/jiang-cc/MMAD). 
 ```bash
+cd dataset
 # Make sure you have git-lfs installed (https://git-lfs.com)
 git lfs install
 git clone https://huggingface.co/datasets/jiang-cc/MMAD
 ```
 Or download the ZIP file:
 ```bash
-wget https://huggingface.co/datasets/jiang-cc/MMAD/resolve/refs%2Fpr%2F1/ALL_DATA.zip?download=true
+cd dataset/MMAD
+wget -O ALL_DATA.zip https://huggingface.co/datasets/jiang-cc/MMAD/resolve/refs%2Fpr%2F1/ALL_DATA.zip?download=true
+unzip ALL_DATA.zip
 ```
 
 ### 2. Model Configuration
