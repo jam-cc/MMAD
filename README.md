@@ -17,10 +17,10 @@
 
 ## 📜 News
 
+- **[2024-12-16]** We have released textual domain knowledge for anomaly detection, which can be used for image-text research in MMAD dataset. 
 - **[2024-10-30]** The full dataset is released at [Hugging Face](https://huggingface.co/datasets/jiang-cc/MMAD), including images and captions. You can download the whole dataset easier now!
 - **[2024-10-16]** MMAD paper is released at [arXiv](https://arxiv.org/abs/2410.09453).
-- **[2024-10-08]** MMAD dataset and evaluation code are released.
-
+- **[2024-10-08]** MMAD dataset and evaluation code are released. 
 
 
 ## 👀 Overview
@@ -84,11 +84,18 @@ cd ./evaluation/examples/LLaVA_Query
 python llava_query.py --model-path ../../LLaVA/llava-v1.6-34b/ --dtype 4bit
 ```
 
+## Domain Knowledge
+
+Our experts, with the assistance of large language models, have summarized the detection content for each category in MMAD, including descriptions of normal features, anomaly classifications, and detailed descriptions for each category. The data can be found in [dataset/MMAD/domain_knowledge.json](https://github.com/jam-cc/MMAD/blob/main/dataset/MMAD/domain_knowledge.json). 
+
 ## 👨‍💻 Todo
+
 - [x] Release the dataset (manual version)
 - [x] Release the evaluation code
 - [x] Release the paper
 - [x] Release full version with images included on Hugging Face
+- [x] Release domain knowledge
+- [ ] Release human baseline
 
 ## BibTex Citation
 

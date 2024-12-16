@@ -212,41 +212,41 @@ class GPT4Query():
         if questions == [] or answers == []:
             return questions, answers, None
 
-        # gpt_answers = []
-        # for i in range(len(questions)):
-        #     part_questions = questions[:i + 1]
-        #     payload = self.get_query(part_questions)
-        #     respond = self.send_request_to_api(payload)
-        #     if respond is None:
-        #         gpt_answers.append('')
-        #         continue
+        gpt_answers = []
+        for i in range(len(questions)):
+            part_questions = questions[:i + 1]
+            payload = self.get_query(part_questions)
+            respond = self.send_request_to_api(payload)
+            if respond is None:
+                gpt_answers.append('')
+                continue
+            gpt_answer = self.parse_json(respond)
+            gpt_answer = self.parse_answer(gpt_answer)
+            gpt_answers.append(gpt_answer[-1])
+
+        # # 先单独问有无的问题再问其他问题
+        # first_question = [questions[0]]
+        # payload = self.get_query(first_question)
+        # respond = self.send_request_to_api(payload)
+        # if respond is None:
+        #     return questions, answers, None
+        #     # first_answer = ['']
+        # else:
         #     gpt_answer = self.parse_json(respond)
+        #     print("first_question", gpt_answer)
         #     gpt_answer = self.parse_answer(gpt_answer)
-        #     gpt_answers.append(gpt_answer[-1])
-
-        # 先单独问有无的问题再问其他问题
-        first_question = [questions[0]]
-        payload = self.get_query(first_question)
-        respond = self.send_request_to_api(payload)
-        if respond is None:
-            return questions, answers, None
-            # first_answer = ['']
-        else:
-            gpt_answer = self.parse_json(respond)
-            print("first_question", gpt_answer)
-            gpt_answer = self.parse_answer(gpt_answer)
-            first_answer = [gpt_answer[-1]]
-
-        payload = self.get_query(questions[1:])
-        respond = self.send_request_to_api(payload)
-        if respond is None:
-            return questions, answers, None
-            # gpt_answer = ['' for _ in range(len(questions))]
-        else:
-            gpt_answer = self.parse_json(respond)
-            print(gpt_answer)
-            gpt_answer = self.parse_answer(gpt_answer)
-        gpt_answers = first_answer + gpt_answer
+        #     first_answer = [gpt_answer[-1]]
+        #
+        # payload = self.get_query(questions[1:])
+        # respond = self.send_request_to_api(payload)
+        # if respond is None:
+        #     return questions, answers, None
+        #     # gpt_answer = ['' for _ in range(len(questions))]
+        # else:
+        #     gpt_answer = self.parse_json(respond)
+        #     print(gpt_answer)
+        #     gpt_answer = self.parse_answer(gpt_answer)
+        # gpt_answers = first_answer + gpt_answer
 
         return questions, answers, gpt_answers
 
@@ -363,36 +363,7 @@ if __name__=="__main__":
     with open(cfg["json_path"], "r") as file:
         chat_ad = json.load(file)
 
-    if 'openai' in api["url"]:
-        daily_quota = 10000
-    else:
-        daily_quota = 450
-    # 记录今天的日期
-    today = datetime.now().date()
-    # 计数器，用于记录今天已经处理的图片数
-    processed_count = 0
-
     for data_id, image_path in enumerate(tqdm(chat_ad.keys())):
-        # 如果达到限额
-        if processed_count >= daily_quota:
-            # 计算到明天的时间
-            now = datetime.now()
-            tomorrow = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
-            sleep_seconds = (tomorrow - now).total_seconds()
-
-            print(f"已达到每日限额，程序将暂停 {sleep_seconds} 秒直到明天。")
-            time.sleep(sleep_seconds)
-
-            # 重置计数器和日期
-            processed_count = 0
-            today = datetime.now().date()
-
-        if image_path in existing_images and not args.reproduce:
-            continue
-
-        # 计算今天已过图片数
-        processed_count += 1
-
         text_gt = chat_ad[image_path]
         if args.similar_template:
             few_shot = text_gt["similar_templates"][:args.few_shot_model]
