@@ -17,6 +17,7 @@
 
 ## 📜 News
 
+- **[2025-01-08]** We released a human baseline for MMAD along with some further analysis. For more details, please refer to the latest [paper](https://arxiv.org/abs/2410.09453).
 - **[2024-12-16]** We have released textual domain knowledge for anomaly detection, which can be used for image-text research in MMAD dataset. 
 - **[2024-10-30]** The full dataset is released at [Hugging Face](https://huggingface.co/datasets/jiang-cc/MMAD), including images and captions. You can download the whole dataset easier now!
 - **[2024-10-16]** MMAD paper is released at [arXiv](https://arxiv.org/abs/2410.09453).
@@ -95,7 +96,8 @@ Our experts, with the assistance of large language models, have summarized the d
 - [x] Release the paper
 - [x] Release full version with images included on Hugging Face
 - [x] Release domain knowledge
-- [ ] Release human baseline
+- [x] Release human baseline
+- [ ] Maintain a leaderboard for MMAD
 
 ## BibTex Citation
 
