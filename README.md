@@ -1,4 +1,4 @@
-# MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection
+# [ICLR 2025] MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection
 
 [![Industry_Inspection](https://img.shields.io/badge/Task-Industry_Inspection-white)](https://github.com/M-3LAB/awesome-industrial-anomaly-detection)
 [![MMAD](https://img.shields.io/badge/Dataset-MMAD-blue)](https://arxiv.org/abs/2410.09453)
@@ -17,6 +17,7 @@
 
 ## 📜 News
 
+- **[2025-01-28]** MMAD paper is accepted by [ICLR 2025](https://openreview.net/forum?id=JDiER86r8v).
 - **[2025-01-08]** We released a human baseline for MMAD along with some further analysis. For more details, please refer to the latest [paper](https://arxiv.org/abs/2410.09453).
 - **[2024-12-16]** We have released textual domain knowledge for anomaly detection, which can be used for image-text research in MMAD dataset. 
 - **[2024-10-30]** The full dataset is released at [Hugging Face](https://huggingface.co/datasets/jiang-cc/MMAD), including images and captions. You can download the whole dataset easier now!
@@ -29,7 +30,7 @@ In the field of industrial inspection, Multimodal Large Language Models (MLLMs) 
 
 
 <p align="center">
-    <img src="./figs/overview.jpg" width="100%" height="100%">
+    <img src="./figs/overview.png" width="100%" height="100%">
 </p>
 
 ## 📐 Dataset Examples
@@ -103,10 +104,11 @@ Our experts, with the assistance of large language models, have summarized the d
 
 If you find this paper and repository useful, please cite our paper☺️.
 ```bibtex
-@inproceedings{Jiang2024MMADTF,
-  title={MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection},
-  author={Xi Jiang and Jian Li and Hanqiu Deng and Yong Liu and Bin-Bin Gao and Yifeng Zhou and Jialin Li and Chengjie Wang and Feng Zheng},
-  year={2024},
-  journal={arXiv preprint arXiv:2410.09453},
+@inproceedings{Jiang2024MMAD,
+title={MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection},
+author={Xi Jiang and Jian Li and Hanqiu Deng and Yong Liu and Bin-Bin Gao and Yifeng Zhou and Jialin Li and Chengjie Wang and Feng Zheng},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=JDiER86r8v}
 }
 ```
