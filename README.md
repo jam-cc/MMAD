@@ -1,4 +1,4 @@
-# [ICLR 2025] MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection
+# [ICLR 2025] MMAD: The Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection
 
 [![Industry_Inspection](https://img.shields.io/badge/Task-Industry_Inspection-white)](https://github.com/M-3LAB/awesome-industrial-anomaly-detection)
 [![MMAD](https://img.shields.io/badge/Dataset-MMAD-blue)](https://arxiv.org/abs/2410.09453)
@@ -105,7 +105,7 @@ Our experts, with the assistance of large language models, have summarized the d
 If you find this paper and repository useful, please cite our paper☺️.
 ```bibtex
 @inproceedings{Jiang2024MMAD,
-title={MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection},
+title={MMAD: The Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection},
 author={Xi Jiang and Jian Li and Hanqiu Deng and Yong Liu and Bin-Bin Gao and Yifeng Zhou and Jialin Li and Chengjie Wang and Feng Zheng},
 booktitle={The Thirteenth International Conference on Learning Representations},
 year={2025},
