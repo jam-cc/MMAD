@@ -7,7 +7,7 @@
 
 [![arXiv](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/2410.09453)
 [![Hugging Face](https://img.shields.io/badge/Dataset-Hugging%20Face-yellow)](https://huggingface.co/datasets/jiang-cc/MMAD)
-
+[![中文解读](https://img.shields.io/badge/中文-解读-blue)](https://zhuanlan.zhihu.com/p/23437607183)
 
 [//]: # (## 💡 Highlights)
  Our benchmark responds to the following questions:
