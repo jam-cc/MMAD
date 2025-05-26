@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-# 设置环境变量 export HF_HOME=~/.cache/huggingface
+# Set environment variable export HF_HOME=~/.cache/huggingface
 os.environ["HF_HOME"] = "~/.cache/huggingface"
 
 import time
@@ -124,7 +124,7 @@ class InternVLQuery(GPT4Query):
         questions, answers = self.parse_conversation(self.text_gt)
         if questions == [] or answers == []:
             return questions, answers, None
-        query_image = load_image(self.image_path, max_num=1).to(torch.bfloat16).cuda() # 默认是12个patch
+        query_image = load_image(self.image_path, max_num=1).to(torch.bfloat16).cuda() # Default is 12 patches
         template_image = []
         for ref_image_path in self.few_shot:
             template_image.append(load_image(ref_image_path, max_num=1).to(torch.bfloat16).cuda())
@@ -338,7 +338,7 @@ if __name__ == "__main__":
     if not os.path.exists("result"):
         os.makedirs("result")
     print(f"Answers will be saved at {answers_json_path}")
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -357,22 +357,22 @@ if __name__ == "__main__":
         chat_ad = json.load(file)
 
     if args.debug:
-        # 固定随机种子
+        # Fix random seed
         random.seed(1)
         # random.seed(10)
         sample_keys = random.sample(list(chat_ad.keys()), 1600)
     else:
         sample_keys = chat_ad.keys()
 
-    # 创建一个字典来存储每个缺陷类别中的图像路径
+    # Create a dictionary to store image paths for each defect category
     defect_images = defaultdict(list)
-    # 遍历字典的键并将图像路径存储到对应的缺陷类别中
+    # Iterate through dictionary keys and store image paths in corresponding defect categories
     for image_path in sample_keys:
         dataset_name = image_path.split("/")[0].replace("DS-MVTec", "MVTec")
         object_name = image_path.split("/")[1]
         defect_name = image_path.split("/")[2]
 
-        # 使用 (dataset_name, object_name, defect_name) 作为键
+        # Use (dataset_name, object_name, defect_name) as key
         defect_key = (dataset_name, object_name, defect_name)
         defect_images[defect_key].append(image_path)
 
@@ -396,9 +396,9 @@ if __name__ == "__main__":
         else:
             domain_knowledge = None
 
-        # 获取同一缺陷类别中的所有图像路径
+        # Get all image paths in the same defect category
         images_in_defect = defect_images[defect_key]
-        # 随机选择多个图像，排除当前图像，并确保选择的数量不超过可用的图像数量
+        # Randomly select multiple images, excluding the current image, and ensure the number of selections does not exceed the number of available images
         defect_shot = random.sample([img for img in images_in_defect if img != image_path],
                                         min(args.defect_shot, len(images_in_defect) - 1))
         rel_defect_shot = [os.path.join(args.data_path, path) for path in defect_shot]
@@ -421,7 +421,7 @@ if __name__ == "__main__":
         print(f"Accuracy: {accuracy:.2f}")
 
         questions_type = [conversion["type"] for conversion in text_gt["conversation"]]
-        # 更新答案记录
+        # Update answer record
         for q, a, ga, qt in zip(questions, answers, gpt_answers, questions_type):
             answer_entry = {
                 "image": image_path,
@@ -434,7 +434,7 @@ if __name__ == "__main__":
             all_answers_json.append(answer_entry)
 
         if data_id % 10 == 0 or data_id == len(chat_ad.keys()) - 1:
-            # 保存答案为JSON
+            # Save answers as JSON
             with open(answers_json_path, "w") as file:
                 json.dump(all_answers_json, file, indent=4)
 

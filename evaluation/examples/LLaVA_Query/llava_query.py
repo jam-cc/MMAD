@@ -22,7 +22,7 @@ from helper.summary import caculate_accuracy_mmad
 from GPT4.gpt4v import GPT4Query, instruction
 from SoftPatch.call import call_patchcore, build_patchcore
 
-# 设置环境变量 export HF_HOME=~/.cache/huggingface
+# Set environment variable export HF_HOME=~/.cache/huggingface
 os.environ["HF_HOME"] = "~/.cache/huggingface"
 # sys.path.append("../../LLaVA")
 from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
@@ -112,27 +112,27 @@ class LLaVAQuery(GPT4Query):
     def parse_conversation(self, text_gt):
         Question = []
         Answer = []
-        # 想要匹配的关键字
+        # Keywords to match
         keyword = "conversation"
 
-        # 遍历字典中的所有键
+        # Iterate through all keys in the dictionary
         for key in text_gt.keys():
-            # 如果键以关键字开头
+            # If the key starts with the keyword
             if key.startswith(keyword):
-                # 获取对应的值
+                # Get the corresponding value
                 conversation = text_gt[key]
                 for i, QA in enumerate(conversation):
-                    # 打乱选项的顺序
+                    # Shuffle the order of options
                     options_items = list(QA['Options'].items())
-                    random.shuffle(options_items)  # 随机排序选项
+                    random.shuffle(options_items)  # Randomly sort options
 
-                    # 重建选项文本并创建一个新的选项到答案的映射
+                    # Rebuild option text and create a new mapping from option to answer
                     options_text = ""
                     new_answer_key = None
                     for new_key, (original_key, value) in enumerate(options_items):
-                        options_text += f"{chr(65 + new_key)}. {value}\n"  # 65是字母A的ASCII码
+                        options_text += f"{chr(65 + new_key)}. {value}\n"  # 65 is the ASCII code for letter A
                         if QA['Answer'] == original_key:
-                            new_answer_key = chr(65 + new_key)  # 更新答案的键
+                            new_answer_key = chr(65 + new_key)  # Update the answer key
                     option_dict = {chr(65 + new_key): value for new_key, (original_key, value) in enumerate(options_items)}
 
                     questions_text = QA['Question']
@@ -149,7 +149,7 @@ class LLaVAQuery(GPT4Query):
                             "options": option_dict,
                     },
                     )
-                    # 确保我们找到了新的答案键
+                    # Ensure we found the new answer key
                     if new_answer_key is not None:
                         Answer.append(new_answer_key)
                     else:
@@ -222,7 +222,7 @@ class LLaVAQuery(GPT4Query):
 
         input_ids = tokenizer_image_token(prompt, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors='pt').unsqueeze(0).cuda()
 
-        # 处理图片
+        # Process images
         query_image = cv2.imread(self.image_path)
         if self.visualization:
             self.visualize_image(query_image)
@@ -249,13 +249,13 @@ class LLaVAQuery(GPT4Query):
 
         images = ref_images + [query_image]
         if hasattr(self.image_processor, 'forward'):
-            # 如果 image_processor 有 forward 方法，直接使用
+            # If image_processor has forward method, use it directly
             image_tensor = process_images(images, self.image_processor, self.context_len)
         else:
-            # 如果 image_processor 没有 forward 方法，使用 preprocess 函数
+            # If image_processor doesn't have forward method, use preprocess function
             image_tensor = self.image_processor.preprocess(images, return_tensors="pt")["pixel_values"]
 
-        # 将image_tensor第一维变为list
+        # Convert the first dimension of image_tensor to list
         image_tensor = [image_tensor[i].unsqueeze(0).half().cuda() for i in range(len(image_tensor))]
         image_sizes = [image.size for image in images]
         if self.args.text_only:
@@ -324,7 +324,7 @@ if __name__=="__main__":
     if not os.path.exists("result"):
         os.makedirs("result")
     print(f"Answers will be saved at {answers_json_path}")
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -374,7 +374,7 @@ if __name__=="__main__":
         print(f"Accuracy: {accuracy:.2f}")
 
         questions_type = [conversion["type"] for conversion in text_gt["conversation"]]
-        # 更新答案记录
+        # Update answer record
         for q, a, ga, qt in zip(questions, answers, gpt_answers, questions_type):
             answer_entry = {
                 "image": image_path,
@@ -386,7 +386,7 @@ if __name__=="__main__":
 
             all_answers_json.append(answer_entry)
 
-        # 保存答案为JSON
+        # Save answers as JSON
         with open(answers_json_path, "w") as file:
             json.dump(all_answers_json, file, indent=4)
 

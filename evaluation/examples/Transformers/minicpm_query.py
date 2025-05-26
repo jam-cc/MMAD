@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-# 设置环境变量 export HF_HOME=~/.cache/huggingface
+# Set environment variable export HF_HOME=~/.cache/huggingface
 os.environ["HF_HOME"] = "~/.cache/huggingface"
 
 import time
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     if not os.path.exists("result"):
         os.makedirs("result")
     print(f"Answers will be saved at {answers_json_path}")
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -193,7 +193,7 @@ if __name__ == "__main__":
         print(f"Accuracy: {accuracy:.2f}")
 
         questions_type = [conversion["type"] for conversion in text_gt["conversation"]]
-        # 更新答案记录
+        # Update answer record
         for q, a, ga, qt in zip(questions, answers, gpt_answers, questions_type):
             answer_entry = {
                 "image": image_path,
@@ -206,7 +206,7 @@ if __name__ == "__main__":
             all_answers_json.append(answer_entry)
 
         if data_id % 10 == 0 or data_id == len(chat_ad.keys()) - 1:
-            # 保存答案为JSON
+            # Save answers as JSON
             with open(answers_json_path, "w") as file:
                 json.dump(all_answers_json, file, indent=4)
 

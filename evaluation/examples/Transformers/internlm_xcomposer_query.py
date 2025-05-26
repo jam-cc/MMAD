@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-# 设置环境变量 export HF_HOME=~/.cache/huggingface
+# Set environment variable export HF_HOME=~/.cache/huggingface
 os.environ["HF_HOME"] = "~/.cache/huggingface"
 
 import time
@@ -47,7 +47,7 @@ class InterVLQuery(GPT4Query):
             image = self.model.vis_processor(image).unsqueeze(0).to(self.model.device)
         else:
             assert isinstance(image, torch.Tensor)
-        # 检查并同步模型和图像的精度
+        # Check and synchronize model and image precision
         model_dtype = next(self.model.parameters()).dtype
         if image.dtype != model_dtype:
             image = image.to(model_dtype)
@@ -110,11 +110,11 @@ class InterVLQuery(GPT4Query):
 
 
 def auto_configure_device_map(num_gpus):
-    # visual_encoder 算4层
-    # internlm_model.model.embed_tokens 占用1层
-    # norm 和 lm_head 占用1层
-    # transformer.layers 占用 32 层
-    # 总共34层分配到num_gpus张卡上
+    # visual_encoder counts as 4 layers
+    # internlm_model.model.embed_tokens occupies 1 layer
+    # norm and lm_head occupy 1 layer
+    # transformer.layers occupy 32 layers
+    # Total 34 layers distributed across num_gpus cards
     num_trans_layers = 32
     per_gpu_layers = 38 / num_gpus
 
@@ -168,7 +168,7 @@ if __name__=="__main__":
         # no_split_module_classes = model._no_split_modules
         # max_memory = {int(cuda): memory for cuda in cuda_list}
         # device_map = infer_auto_device_map(model, max_memory=max_memory,
-        #                                    no_split_module_classes=no_split_module_classes)  # 自动划分每个层的设备
+        #                                    no_split_module_classes=no_split_module_classes)  # Automatically assign device for each layer
         device_map = auto_configure_device_map(args.num_gpus)
         model = dispatch_model(model, device_map=device_map)
     if args.dtype == "fp16":
@@ -183,7 +183,7 @@ if __name__=="__main__":
     if not os.path.exists("result"):
         os.makedirs("result")
     print(f"Answers will be saved at {answers_json_path}")
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -227,7 +227,7 @@ if __name__=="__main__":
         print(f"Accuracy: {accuracy:.2f}")
 
         questions_type = [conversion["type"] for conversion in text_gt["conversation"]]
-        # 更新答案记录
+        # Update answer record
         for q, a, ga, qt in zip(questions, answers, gpt_answers, questions_type):
             answer_entry = {
                 "image": image_path,
@@ -240,7 +240,7 @@ if __name__=="__main__":
             all_answers_json.append(answer_entry)
 
         if data_id % 10 == 0 or data_id == len(chat_ad.keys()) - 1:
-            # 保存答案为JSON
+            # Save answers as JSON
             with open(answers_json_path, "w") as file:
                 json.dump(all_answers_json, file, indent=4)
 

@@ -102,9 +102,9 @@ def get_dataloaders(args):
 
             if noise_number > (len(anomaly_index)/2):
                 noise_number = int(len(anomaly_index) / 2)
-                # 调整正常样本的数量使noise_number和train_dataset中样本的比例为noise
+                # Adjust the number of normal samples so that the ratio of noise_number to samples in train_dataset is noise
                 train_normal_number = noise_number/noise
-                # 从train_dataset中随机选取train_normal_number个样本作为正常样本
+                # Randomly select train_normal_number samples from train_dataset as normal samples
                 train_normal_index = random.sample(range(len(train_dataset)), int(train_normal_number))
                 train_normal_dataset = Subset(train_dataset, train_normal_index)
                 train_normal_dataset.imagesize = train_normal_dataset.dataset.imagesize

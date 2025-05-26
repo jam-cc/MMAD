@@ -62,12 +62,12 @@ class GeminiQuery():
         self.max_retries = 5
 
     def encode_image_to_base64(self, image):
-        # 获取图像的尺寸
+        # Get image dimensions
         height, width = image.shape[:2]
-        # 计算缩放比例
+        # Calculate scaling ratio
         scale = min(self.max_image_size[0] / width, self.max_image_size[1] / height)
 
-        # 使用新的尺寸缩放图像
+        # Scale image using new dimensions
         new_width, new_height = int(width * scale), int(height * scale)
         resized_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_AREA)
         _, encoded_image = cv2.imencode('.jpg', resized_image)
@@ -77,8 +77,8 @@ class GeminiQuery():
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         fig, ax = plt.subplots()
         ax.imshow(image)
-        ax.axis('off')  # 关闭坐标轴
-        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # 减小边距
+        ax.axis('off')  # Turn off coordinate axes
+        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # Reduce margins
         plt.show()
 
 
@@ -106,14 +106,14 @@ class GeminiQuery():
     def parse_conversation(self, text_gt):
         Question = []
         Answer = []
-        # 想要匹配的关键字
+        # Keywords to match
         keyword = "conversation"
 
-        # 遍历字典中的所有键
+        # Iterate through all keys in the dictionary
         for key in text_gt.keys():
-            # 如果键以关键字开头
+            # If the key starts with the keyword
             if key.startswith(keyword):
-                # 获取对应的值
+                # Get the corresponding value
                 conversation = text_gt[key]
                 for i, QA in enumerate(conversation):
                     options_items = list(QA['Options'].items())
@@ -138,17 +138,17 @@ class GeminiQuery():
         # pattern = re.compile(r'\bAnswer:\s*([A-Za-z])[^A-Za-z]*')
         # pattern = re.compile(r'(?:Answer:\s*[^A-D]*)?([A-D])[^\w]*')
         pattern = re.compile(r'\b([A-E])\b')
-        # 使用正则表达式提取答案
+        # Use regular expressions to extract answer
         answers = pattern.findall(response_text)
 
         if len(answers) == 0 and options is not None:
             print(f"Failed to extract answer from response: {response_text}")
-            # 模糊匹配options字典来得到答案
+            # Use fuzzy matching on options dictionary to get answer
             options_values = list(options.values())
-            # 使用difflib.get_close_matches来找到最接近的匹配项
+            # Use difflib.get_close_matches to find the closest match
             closest_matches = get_close_matches(response_text, options_values, n=1, cutoff=0.0)
             if closest_matches:
-                # 如果有匹配项，找到对应的键
+                # If there are matches, find the corresponding key
                 closest_match = closest_matches[0]
                 for key, value in options.items():
                     if value == closest_match:
@@ -159,17 +159,17 @@ class GeminiQuery():
     def parse_multi_answer(self, response_text, options=None):
         # pattern = re.compile(r'\bAnswer:\s*([A-Za-z])[^A-Za-z]*')
         pattern = re.compile(r'(?:Answer:\s*[^A-D]*)?([A-D])[^\w]*')
-        # 使用正则表达式提取答案
+        # Use regular expressions to extract answer
         answers = pattern.findall(response_text)
 
         if len(answers) == 0 and options is not None:
             print(f"Failed to extract answer from response: {response_text}")
-            # 模糊匹配options字典来得到答案
+            # Use fuzzy matching on options dictionary to get answer
             options_values = list(options.values())
-            # 使用difflib.get_close_matches来找到最接近的匹配项
+            # Use difflib.get_close_matches to find the closest match
             closest_matches = get_close_matches(response_text, options_values, n=1, cutoff=0.0)
             if closest_matches:
-                # 如果有匹配项，找到对应的键
+                # If there are matches, find the corresponding key
                 closest_match = closest_matches[0]
                 for key, value in options.items():
                     if value == closest_match:
@@ -183,7 +183,7 @@ class GeminiQuery():
             return questions, answers, None
 
         # def process_question(i, questions):
-        #     # 使用单个问题进行查询
+        #     # Use single question for query
         #     part_questions = questions[i:i + 1]
         #     payload = self.get_query(part_questions)
         #     respond = self.send_request_to_api(payload)
@@ -200,7 +200,7 @@ class GeminiQuery():
         #         i, answer = future.result()
         #         gpt_answers[i] = answer
 
-        # 先单独问有无的问题再问其他问题
+        # First ask if there's a problem before asking other questions
         first_question = [questions[0]]
         payload = self.get_query(first_question)
         respond = self.send_request_to_api(payload)
@@ -292,7 +292,7 @@ if __name__=="__main__":
     if not os.path.exists("result"):
         os.makedirs("result")
 
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -336,7 +336,7 @@ if __name__=="__main__":
         # print(f"API time cost: {model.api_time_cost:.2f}s")
 
         questions_type = [conversion["type"] for conversion in text_gt["conversation"]]
-        # 更新答案记录
+        # Update answer record
         for q, a, ga, qt in zip(questions, answers, gpt_answers, questions_type):
             answer_entry = {
                 "image": image_path,

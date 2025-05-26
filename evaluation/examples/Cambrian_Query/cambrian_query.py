@@ -5,7 +5,7 @@ import json
 import cv2
 
 import os
-# 设置环境变量 export HF_HOME=~/.cache/huggingface
+# Set environment variable export HF_HOME=~/.cache/huggingface
 os.environ["HF_HOME"] = "~/.cache/huggingface"
 import random
 
@@ -103,27 +103,27 @@ class CambrianQuery(GPT4Query):
     def parse_conversation(self, text_gt):
         Question = []
         Answer = []
-        # 想要匹配的关键字
+        # Keywords to match
         keyword = "conversation"
 
-        # 遍历字典中的所有键
+        # Iterate through all keys in the dictionary
         for key in text_gt.keys():
-            # 如果键以关键字开头
+            # If the key starts with the keyword
             if key.startswith(keyword):
-                # 获取对应的值
+                # Get the corresponding value
                 conversation = text_gt[key]
                 for i, QA in enumerate(conversation):
-                    # 打乱选项的顺序
+                    # Shuffle the order of options
                     options_items = list(QA['Options'].items())
-                    random.shuffle(options_items)  # 随机排序选项
+                    random.shuffle(options_items)  # Randomly sort options
 
-                    # 重建选项文本并创建一个新的选项到答案的映射
+                    # Rebuild option text and create a new mapping from option to answer
                     options_text = ""
                     new_answer_key = None
                     for new_key, (original_key, value) in enumerate(options_items):
-                        options_text += f"{chr(65 + new_key)}. {value}\n"  # 65是字母A的ASCII码
+                        options_text += f"{chr(65 + new_key)}. {value}\n"  # 65 is the ASCII code for letter A
                         if QA['Answer'] == original_key:
-                            new_answer_key = chr(65 + new_key)  # 更新答案的键
+                            new_answer_key = chr(65 + new_key)  # Update the answer key
                     option_dict = {chr(65 + new_key): value for new_key, (original_key, value) in enumerate(options_items)}
 
                     questions_text = QA['Question']
@@ -140,7 +140,7 @@ class CambrianQuery(GPT4Query):
                             "options": option_dict,
                     },
                     )
-                    # 确保我们找到了新的答案键
+                    # Ensure we found the new answer key
                     if new_answer_key is not None:
                         Answer.append(new_answer_key)
                     else:
@@ -213,7 +213,7 @@ class CambrianQuery(GPT4Query):
 
         input_ids = tokenizer_image_token(prompt, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors='pt').unsqueeze(0).cuda()
 
-        # 处理图片
+        # Process images
         query_image = cv2.imread(self.image_path)
         if self.visualization:
             self.visualize_image(query_image)
@@ -267,7 +267,7 @@ if __name__=="__main__":
 
     parser.add_argument("--dtype", type=str, default="fp32")
 
-    parser.add_argument("--few_shot_model", type=int, default=1)
+    parser.add_argument("--few_shot_model", type=int, default=0)
     parser.add_argument("--similar_template", action="store_true")
     parser.add_argument("--reproduce", action="store_true")
 

@@ -73,12 +73,12 @@ class GPT4Query():
         self.max_retries = 5
 
     def encode_image_to_base64(self, image):
-        # 获取图像的尺寸
+        # Get image dimensions
         height, width = image.shape[:2]
-        # 计算缩放比例
+        # Calculate scaling ratio
         scale = min(self.max_image_size[0] / width, self.max_image_size[1] / height)
 
-        # 使用新的尺寸缩放图像
+        # Scale image using new dimensions
         new_width, new_height = int(width * scale), int(height * scale)
         resized_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_AREA)
         _, encoded_image = cv2.imencode('.jpg', resized_image)
@@ -88,8 +88,8 @@ class GPT4Query():
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         fig, ax = plt.subplots()
         ax.imshow(image)
-        ax.axis('off')  # 关闭坐标轴
-        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # 减小边距
+        ax.axis('off')  # Turn off coordinate axes
+        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # Reduce margins
         plt.show()
 
 
@@ -107,7 +107,7 @@ class GPT4Query():
                 before = time.time()
                 response = requests.post(self.url, headers=headers, json=payload)
 
-                # 使用get方法从响应中安全获取'choices'字段
+                # Safely get 'choices' field from response using get method
                 choices = response.json().get('choices', [])
                 if choices:
                     if any(word in choices[0]['message']['content'].lower() for word in error_keywords):
@@ -119,7 +119,7 @@ class GPT4Query():
                     self.api_time_cost += time.time() - before
                     return response.json()
                 else:
-                    # 如果choices字段不存在或为空，根据需要进行操作
+                    # If choices field doesn't exist or is empty, perform operations as needed
                     print(response.json())
                     retries += 1
 
@@ -136,14 +136,14 @@ class GPT4Query():
     def parse_conversation(self, text_gt):
         Question = []
         Answer = []
-        # 想要匹配的关键字
+        # Keywords to match
         keyword = "conversation"
 
-        # 遍历字典中的所有键
+        # Iterate through all keys in the dictionary
         for key in text_gt.keys():
-            # 如果键以关键字开头
+            # If the key starts with the keyword
             if key.startswith(keyword):
-                # 获取对应的值
+                # Get the corresponding value
                 conversation = text_gt[key]
                 for i, QA in enumerate(conversation):
                     options_items = list(QA['Options'].items())
@@ -168,17 +168,17 @@ class GPT4Query():
         # pattern = re.compile(r'\bAnswer:\s*([A-Za-z])[^A-Za-z]*')
         # pattern = re.compile(r'(?:Answer:\s*[^A-D]*)?([A-D])[^\w]*')
         pattern = re.compile(r'\b([A-E])\b')
-        # 使用正则表达式提取答案
+        # Use regular expressions to extract answer
         answers = pattern.findall(response_text)
 
         if len(answers) == 0 and options is not None:
             print(f"Failed to extract answer from response: {response_text}")
-            # 模糊匹配options字典来得到答案
+            # Use fuzzy matching on options dictionary to get answer
             options_values = list(options.values())
-            # 使用difflib.get_close_matches来找到最接近的匹配项
+            # Use difflib.get_close_matches to find the closest match
             closest_matches = get_close_matches(response_text, options_values, n=1, cutoff=0.0)
             if closest_matches:
-                # 如果有匹配项，找到对应的键
+                # If there are matches, find the corresponding key
                 closest_match = closest_matches[0]
                 for key, value in options.items():
                     if value == closest_match:
@@ -187,19 +187,19 @@ class GPT4Query():
         return answers
 
     def parse_multi_answer(self, response_text, options=None):
-        # pattern = re.compile(r'\bAnswer:\s*([A-Za-z])[^A-Za-z]*')
+        # Use regular expressions to extract answer
         pattern = re.compile(r'(?:Answer:\s*[^A-D]*)?([A-D])[^\w]*')
-        # 使用正则表达式提取答案
+        # Use regular expressions to extract answer
         answers = pattern.findall(response_text)
 
         if len(answers) == 0 and options is not None:
             print(f"Failed to extract answer from response: {response_text}")
-            # 模糊匹配options字典来得到答案
+            # Use fuzzy matching on options dictionary to get answer
             options_values = list(options.values())
-            # 使用difflib.get_close_matches来找到最接近的匹配项
+            # Use difflib.get_close_matches to find the closest match
             closest_matches = get_close_matches(response_text, options_values, n=1, cutoff=0.0)
             if closest_matches:
-                # 如果有匹配项，找到对应的键
+                # If there are matches, find the corresponding key
                 closest_match = closest_matches[0]
                 for key, value in options.items():
                     if value == closest_match:
@@ -251,25 +251,25 @@ class GPT4Query():
         return questions, answers, gpt_answers
 
     def parse_json(self, response_json):
-        # 从响应中获取'choices'字段
+        # Get 'choices' field from response
         choices = response_json.get('choices', [])
 
-        # 如果'choices'字段存在且不为空
+        # If 'choices' field exists and is not empty
         if choices:
-            # 获取'choices'字段的第一个元素
+            # Get the first element of 'choices' field
             first_choice = choices[0]
 
-            # 从第一个元素中获取'message'字段
+            # Get 'message' field from the first element
             message = first_choice.get('message', {})
 
-            # 从'message'字段中获取'content'字段，即caption
+            # Get 'content' field from 'message' field, which is the caption
             # caption = message.get('content', '')
             caption = message['content']
             if self.visualization:
                 print(f"Caption: {caption}")
             return caption
 
-        # 如果'choices'字段不存在或为空，返回空字符串
+        # If 'choices' field doesn't exist or is empty, return empty string
         return ''
 
     def get_query(self, conversation):
@@ -305,7 +305,7 @@ class GPT4Query():
         if self.visualization:
             print(conversation)
 
-        # 构建查询
+        # Build query
         payload = {
             "model": "gpt-4o",
             "messages": [
@@ -345,7 +345,7 @@ if __name__=="__main__":
     answers_json_path = f"result/answers_{args.few_shot_model}_shot_{model_name}.json"
     if not os.path.exists("result"):
         os.makedirs("result")
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -386,7 +386,7 @@ if __name__=="__main__":
         print(f"API time cost: {model.api_time_cost:.2f}s")
 
         questions_type = [conversion["type"] for conversion in text_gt["conversation"]]
-        # 更新答案记录
+        # Update answer record
         for q, a, ga, qt in zip(questions, answers, gpt_answers, questions_type):
             answer_entry = {
                 "image": image_path,

@@ -60,12 +60,12 @@ class GPT4Query():
         self.max_retries = 3
 
     def encode_image_to_base64(self, image):
-        # 获取图像的尺寸
+        # Get image dimensions
         height, width = image.shape[:2]
-        # 计算缩放比例
+        # Calculate scaling ratio
         scale = min(self.max_image_size[0] / width, self.max_image_size[1] / height)
 
-        # 使用新的尺寸缩放图像
+        # Scale image using new dimensions
         new_width, new_height = int(width * scale), int(height * scale)
         resized_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_AREA)
         _, encoded_image = cv2.imencode('.jpg', resized_image)
@@ -75,8 +75,8 @@ class GPT4Query():
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         fig, ax = plt.subplots()
         ax.imshow(image)
-        ax.axis('off')  # 关闭坐标轴
-        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # 减小边距
+        ax.axis('off')  # Turn off coordinate axes
+        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # Reduce margins
         plt.show()
 
 
@@ -94,7 +94,7 @@ class GPT4Query():
                 before = time.time()
                 response = requests.post(self.url, headers=headers, json=payload)
 
-                # 使用get方法从响应中安全获取'choices'字段
+                # Safely get 'choices' field from response using get method
                 choices = response.json().get('choices', [])
                 if choices:
                     if any(word in choices[0]['message']['content'].lower() for word in error_keywords):
@@ -106,7 +106,7 @@ class GPT4Query():
                     self.api_time_cost += time.time() - before
                     return response.json()
                 else:
-                    # 如果choices字段不存在或为空，根据需要进行操作
+                    # If choices field doesn't exist or is empty, perform operations as needed
                     print(response.json())
                     retries += 1
 
@@ -123,28 +123,28 @@ class GPT4Query():
     def parse_conversation(self, text_gt):
         Question = []
         Answer = []
-        # 想要匹配的关键字
+        # Keywords to match
         keyword = "conversation"
 
-        # 遍历字典中的所有键
+        # Iterate through all keys in the dictionary
         for key in text_gt.keys():
-            # 如果键以关键字开头
+            # If the key starts with the keyword
             if key.startswith(keyword):
-                # 获取对应的值
+                # Get the corresponding value
                 conversation = text_gt[key]
                 for i, QA in enumerate(conversation):
 
-                    # 打乱选项的顺序
+                    # Shuffle the order of options
                     options_items = list(QA['Options'].items())
-                    # random.shuffle(options_items)  # 随机排序选项
+                    # random.shuffle(options_items)  # Randomly sort options
 
-                    # 重建选项文本并创建一个新的选项到答案的映射
+                    # Rebuild option text and create a new mapping from options to answers
                     options_text = ""
                     new_answer_key = None
                     for new_key, (original_key, value) in enumerate(options_items):
-                        options_text += f"{chr(65 + new_key)}. {value}\n"  # 65是字母A的ASCII码
+                        options_text += f"{chr(65 + new_key)}. {value}\n"  # 65 is the ASCII code for letter A
                         if QA['Answer'] == original_key:
-                            new_answer_key = chr(65 + new_key)  # 更新答案的键
+                            new_answer_key = chr(65 + new_key)  # Update answer key
                     option_dict = {chr(65 + new_key): value for new_key, (original_key, value) in enumerate(options_items)}
 
                     questions_text = QA['Question']
@@ -160,7 +160,7 @@ class GPT4Query():
                             "options": option_dict,
                     },
                     )
-                    # 确保我们找到了新的答案键
+                    # Ensure we found the new answer key
                     if new_answer_key is not None:
                         Answer.append(new_answer_key)
                     else:
@@ -173,17 +173,17 @@ class GPT4Query():
         # pattern = re.compile(r'\bAnswer:\s*([A-Za-z])[^A-Za-z]*')
         # pattern = re.compile(r'(?:Answer:\s*[^A-D]*)?([A-D])[^\w]*')
         pattern = re.compile(r'\b([A-E])\b')
-        # 使用正则表达式提取答案
+        # Extract answers using regular expressions
         answers = pattern.findall(response_text)
 
         if len(answers) == 0 and options is not None:
             print(f"Failed to extract answer from response: {response_text}")
-            # 模糊匹配options字典来得到答案
+            # Use fuzzy matching on options dictionary to get the answer
             options_values = list(options.values())
-            # 使用difflib.get_close_matches来找到最接近的匹配项
+            # Use difflib.get_close_matches to find the closest match
             closest_matches = get_close_matches(response_text, options_values, n=1, cutoff=0.0)
             if closest_matches:
-                # 如果有匹配项，找到对应的键
+                # If there's a match, find the corresponding key
                 closest_match = closest_matches[0]
                 for key, value in options.items():
                     if value == closest_match:
@@ -194,17 +194,17 @@ class GPT4Query():
     def parse_multi_answer(self, response_text, options=None):
         # pattern = re.compile(r'\bAnswer:\s*([A-Za-z])[^A-Za-z]*')
         pattern = re.compile(r'(?:Answer:\s*[^A-D]*)?([A-D])[^\w]*')
-        # 使用正则表达式提取答案
+        # Extract answers using regular expressions
         answers = pattern.findall(response_text)
 
         if len(answers) == 0 and options is not None:
             print(f"Failed to extract answer from response: {response_text}")
-            # 模糊匹配options字典来得到答案
+            # Use fuzzy matching on options dictionary to get the answer
             options_values = list(options.values())
-            # 使用difflib.get_close_matches来找到最接近的匹配项
+            # Use difflib.get_close_matches to find the closest match
             closest_matches = get_close_matches(response_text, options_values, n=1, cutoff=0.0)
             if closest_matches:
-                # 如果有匹配项，找到对应的键
+                # If there's a match, find the corresponding key
                 closest_match = closest_matches[0]
                 for key, value in options.items():
                     if value == closest_match:
@@ -229,7 +229,7 @@ class GPT4Query():
             gpt_answer = self.parse_answer(gpt_answer)
             gpt_answers.append(gpt_answer[-1])
 
-        # # 先单独问有无的问题再问其他问题
+        # # First ask the yes/no question separately, then ask other questions
         # first_question = [questions[0]]
         # payload = self.get_query(first_question)
         # respond = self.send_request_to_api(payload)
@@ -254,25 +254,25 @@ class GPT4Query():
         return questions, answers, gpt_answers
 
     def parse_json(self, response_json):
-        # 从响应中获取'choices'字段
+        # Get 'choices' field from response
         choices = response_json.get('choices', [])
 
-        # 如果'choices'字段存在且不为空
+        # If 'choices' field exists and is not empty
         if choices:
-            # 获取'choices'字段的第一个元素
+            # Get the first element of 'choices' field
             first_choice = choices[0]
 
-            # 从第一个元素中获取'message'字段
+            # Get 'message' field from the first element
             message = first_choice.get('message', {})
 
-            # 从'message'字段中获取'content'字段，即caption
+            # Get 'content' field from 'message' field, which is the caption
             # caption = message.get('content', '')
             caption = message['content']
             if self.visualization:
                 print(f"Caption: {caption}")
             return caption
 
-        # 如果'choices'字段不存在或为空，返回空字符串
+        # If 'choices' field doesn't exist or is empty, return empty string
         return ''
 
     def get_query(self, conversation):
@@ -308,7 +308,7 @@ class GPT4Query():
         if self.visualization:
             print(conversation)
 
-        # 构建查询
+        # Build query
         payload = {
             "model": "gpt-4o",
             "messages": [{
@@ -363,16 +363,16 @@ if __name__=="__main__":
     }
     few_shot_model = cfg["few_shot_model"]
     dataset_path = cfg["path"]
-    #classname 定义为dataset_path下的文件夹
+    # classname is defined as folders under dataset_path
     classname = os.listdir(dataset_path)
     splits = cfg["splits"]
-    # 检查是否都是文件夹
+    # Check if they are all folders
     for c in classname:
         if not os.path.isdir(os.path.join(dataset_path, c)):
             classname.remove(c)
-    # indices = [0, 2]  # 想从列表中选择的元素的索引
+    # indices = [0, 2]  # Indices of elements to select from the list
     #
-    # # 使用列表推导选择元素
+    # # Use list comprehension to select elements
     # classname = [classname[i] for i in indices]
 
 
@@ -381,13 +381,13 @@ if __name__=="__main__":
     normal_dataset = ADDataset(source=noraml_cfg["path"], classnames=classname, splits=noraml_cfg["splits"],training=True, transform_fn=None, normalize_fn=None)
     answers_json_path = f"answers_{few_shot_model}_shot.json"
 
-    # 初始化准确率统计字典
+    # Initialize accuracy statistics dictionary
     question_stats = [{} for _ in range(5)]
     for i in range(5):
         for cls in classname:
             question_stats[i][cls] = {'correct': 0, 'total': 0}
 
-    # 用于存储所有答案
+    # Used to store all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -395,21 +395,21 @@ if __name__=="__main__":
         all_answers_json = []
 
     for data_id, data in tqdm(enumerate(dataset), total=len(dataset), desc="Processing dataset"):
-        # 计算当前image_path对应的答案数量
+        # Calculate the number of answers corresponding to current image_path
         answers_count = sum([a["image"] == data["image_path"] for a in all_answers_json])
 
-        # 如果答案数量达到5个，则跳过
+        # If the number of answers reaches 5, skip
         if answers_count >= 5:
             continue
         else:
-            # 如果答案数量少于5个，则删除所有已有的答案
+            # If the number of answers is less than 5, delete all existing answers
             all_answers_json = [a for a in all_answers_json if a["image"] != data["image_path"]]
         if data["text_gt"] is None:
             continue
-        # 从ADDataset中随机抽取数据作为few—shot, 要求类别一致
+        # Randomly sample data from ADDataset as few-shot, requiring consistent categories
         imgpaths_per_class = normal_dataset.imgpaths_per_class
         normal_set = imgpaths_per_class[data["clsname"]]["good"]
-        # 从normal_set中随机抽取few_shot
+        # Randomly sample few_shot from normal_set
         few_shot = random.sample(normal_set, few_shot_model)
         model = GPT4Query(image_path=data["image_path"], text_gt=data["text_gt"], few_shot=few_shot)
         questions, answers, gpt_answers = model.generate_answer()
@@ -423,7 +423,7 @@ if __name__=="__main__":
         print(f"Accuracy: {accuracy:.2f}")
         print(f"API time cost: {model.api_time_cost:.2f}s")
 
-        # 更新答案记录
+        # Update answer records
         for q, a, ga in zip(questions, answers, gpt_answers):
             answer_entry = {
                 "class": data['clsname'],
@@ -440,7 +440,7 @@ if __name__=="__main__":
             # if ga == a:
             #     question_stats[question_index][data["clsname"]]['correct'] += 1
         if data_id % 10 == 0 or data_id == len(dataset) - 1:
-            # 保存答案为JSON
+            # Save answers as JSON
             with open(answers_json_path, "w") as file:
                 json.dump(all_answers_json, file, indent=4)
 

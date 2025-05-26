@@ -6,7 +6,7 @@ import seaborn as sns
 import argparse
 
 def caculate_accuracy_mmad(answers_json_path, normal_flag='good', show_overkill_miss=False):
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -22,7 +22,7 @@ def caculate_accuracy_mmad(answers_json_path, normal_flag='good', show_overkill_
         if type not in type_list:
             type_list.append(question_type)
 
-    # 初始化统计数据结构
+    # Initialize statistics data structure
     question_stats = {dataset_name: {} for dataset_name in dataset_names}
     detection_stats = {dataset_name: {} for dataset_name in dataset_names}
     for dataset_name in dataset_names:
@@ -67,7 +67,7 @@ def caculate_accuracy_mmad(answers_json_path, normal_flag='good', show_overkill_
             correct_answers_dict[correct_answer] = 0
         correct_answers_dict[correct_answer] += 1
 
-    # 创建准确率表格
+    # Create accuracy table
     accuracy_df = pd.DataFrame(index=dataset_names)
     for dataset_name in dataset_names:
         for question_type in type_list:
@@ -91,7 +91,7 @@ def caculate_accuracy_mmad(answers_json_path, normal_flag='good', show_overkill_
                 # accuracy_df.at[dataset_name, 'anomaly_acc'] = anomaly_acc
                 accuracy_df.at[dataset_name, 'Anomaly Detection'] = (normal_acc+anomaly_acc)/2*100
 
-    # 计算每个问题的平均准确率
+    # Calculate the average accuracy for each question
     accuracy_df['Average'] = accuracy_df.mean(axis=1)
 
     if show_overkill_miss:
@@ -105,18 +105,18 @@ def caculate_accuracy_mmad(answers_json_path, normal_flag='good', show_overkill_
 
     accuracy_df.loc['Average'] = accuracy_df.mean()
 
-    # 数据可视化
+    # Data visualization
     plt.figure(figsize=(10, 7))
     sns.heatmap(accuracy_df, annot=True, cmap='coolwarm', fmt=".1f", vmax=100, vmin=25)
     plt.title(f'Accuracy of {os.path.split(answers_json_path)[-1].replace(".json", "")}')
-    # 旋转X轴标签
-    plt.xticks(rotation=30, ha='right')  # ha='right'可以使标签稍微倾斜，以便更好地阅读
+    # Rotate X-axis labels
+    plt.xticks(rotation=30, ha='right')  # ha='right' can make labels slightly tilted for better readability
 
-    # 自动调整边框，减少空白
+    # Automatically adjust borders to reduce whitespace
     plt.tight_layout()
     plt.show()
 
-    # 保存准确率表格
+    # Save accuracy table
     accuracy_path = answers_json_path.replace('.json', '_accuracy.csv')
     accuracy_df.to_csv(accuracy_path)
 
@@ -124,17 +124,17 @@ def caculate_accuracy_mmad(answers_json_path, normal_flag='good', show_overkill_
     return question_stats
 
 def caculate_accuracy(answers_json_path, normal_flag='good'): # for mvtec only
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
-    # 统计classname
+    # Statistic classname
     classname = []
     for answer in all_answers_json:
         cls = answer['class']
         if cls not in classname:
             classname.append(cls)
-    # 初始化统计数据结构
+    # Initialize statistics data structure
     question_stats = {'normal': {}, 'anomaly': {}}
 
     for category in ['normal', 'anomaly']:
@@ -146,7 +146,7 @@ def caculate_accuracy(answers_json_path, normal_flag='good'): # for mvtec only
     count = 0
     question_number = 1
     last_image = ''
-    # 填充统计数据结构
+    # Fill statistics data structure
     for answer in all_answers_json:
         cls = answer['class']
         question_text = answer['question']['text']
@@ -164,24 +164,24 @@ def caculate_accuracy(answers_json_path, normal_flag='good'): # for mvtec only
         # if answer['gpt_answer'] == '' or answer['gpt_answer'] == '':
         #     count += 1
         #     continue
-        # 更新总数和正确数
+        # Update total and correct
         question_stats[category][question_number][cls]['total'] += 1
         if answer['correct_answer'] == answer['gpt_answer']:
             question_stats[category][question_number][cls]['correct'] += 1
         gpt_answer = answer['gpt_answer']
         correct_answer = answer['correct_answer']
         if correct_answer not in ['A', 'B', 'C', 'D', 'E'] or gpt_answer not in ['A', 'B', 'C', 'D', 'E']:
-            # 从all_answers_json中删除该条并保存
+            # Remove from all_answers_json and save
             all_answers_json.remove(answer)
             print("correct_answer:", correct_answer, "gpt_answer:", gpt_answer)
 
             continue
-        # 更新答案计数
+        # Update answer count
         answers_dict = question_stats[category][question_number][cls]['answers']
         if gpt_answer not in answers_dict:
             answers_dict[gpt_answer] = 0
         answers_dict[gpt_answer] += 1
-        # 更新正确答案计数
+        # Update correct answer count
         correct_answers_dict = question_stats[category][question_number][cls]['correct_answers']
         if correct_answer not in correct_answers_dict:
             correct_answers_dict[correct_answer] = 0
@@ -189,12 +189,12 @@ def caculate_accuracy(answers_json_path, normal_flag='good'): # for mvtec only
     # with open(answers_json_path, "w") as file:
     #     json.dump(all_answers_json, file, indent=4)
 
-    # 异常问题：1有无 2种类 3位置 4外观 5其他
+    # Anomaly question: 1 existence 2 type 3 location 4 appearance 5 other
     Anomaly_Question = ["Existence", "Defect Type", "Defect Location", "Defect Appearance", "Other"]
-    # 正常问题：1有无 2-5其他
+    # Normal question: 1 existence 2-5 other
     Normal_Question = ["Existence", "Other", "Other", "Other", "Other"]
 
-    # 根据问题和类别重新统计
+    # Recount based on question and category
     Question_label = ["Existence", "Defect Type", "Defect Location", "Defect Appearance", "Other"]
     new_question_stats = {}
     for cls in classname:
@@ -211,7 +211,7 @@ def caculate_accuracy(answers_json_path, normal_flag='good'): # for mvtec only
                 new_question_stats[cls][question_label]['total'] += question_stats[category][i][cls]['total']
                 new_question_stats[cls][question_label]['correct'] += question_stats[category][i][cls]['correct']
 
-    # 创建准确率表格
+    # Create accuracy table
     accuracy_df = pd.DataFrame(index=classname)
     for cls in classname:
         for question_label in Question_label:
@@ -220,7 +220,7 @@ def caculate_accuracy(answers_json_path, normal_flag='good'): # for mvtec only
             cls_accuracy = correct / total if total != 0 else 0
             accuracy_df.at[cls, question_label] = cls_accuracy
 
-    # 计算每个问题的平均准确率
+    # Calculate the average accuracy for each question
     accuracy_df['Average'] = accuracy_df.mean(axis=1)
 
 
@@ -249,17 +249,17 @@ def caculate_accuracy(answers_json_path, normal_flag='good'): # for mvtec only
 
 
 
-    # 计算每个类别的平均准确率
+    # Calculate the average accuracy for each category
     accuracy_df.loc['Average'] = accuracy_df.mean()
-    # 数据可视化
+    # Data visualization
     plt.figure(figsize=(10, 9))
     sns.heatmap(accuracy_df, annot=True, cmap='coolwarm', fmt=".2f", vmax=1, vmin=0)
     plt.title(f'Accuracy of {os.path.split(answers_json_path)[-1].replace(".json", "")}')
-    # 旋转X轴标签
-    plt.xticks(rotation=30, ha='right')  # ha='right'可以使标签稍微倾斜，以便更好地阅读
+    # Rotate X-axis labels
+    plt.xticks(rotation=30, ha='right')  # ha='right' can make labels slightly tilted for better readability
     plt.show()
 
-    # 保存准确率表格
+    # Save accuracy table
     accuracy_path = answers_json_path.replace('.json', '_accuracy.csv')
     accuracy_df.to_csv(accuracy_path)
 

@@ -106,27 +106,27 @@ class AnomlyGPTQuery(GPT4Query):
     def parse_conversation(self, text_gt):
         Question = []
         Answer = []
-        # 想要匹配的关键字
+        # Keywords to match
         keyword = "conversation"
 
-        # 遍历字典中的所有键
+        # Iterate through all keys in the dictionary
         for key in text_gt.keys():
-            # 如果键以关键字开头
+            # If the key starts with the keyword
             if key.startswith(keyword):
-                # 获取对应的值
+                # Get the corresponding value
                 conversation = text_gt[key]
                 for i, QA in enumerate(conversation):
-                    # 打乱选项的顺序
+                    # Shuffle the order of options
                     options_items = list(QA['Options'].items())
-                    random.shuffle(options_items)  # 随机排序选项
+                    random.shuffle(options_items)  # Randomly sort options
 
-                    # 重建选项文本并创建一个新的选项到答案的映射
+                    # Rebuild option text and create a new mapping from option to answer
                     options_text = ""
                     new_answer_key = None
                     for new_key, (original_key, value) in enumerate(options_items):
-                        options_text += f"{chr(65 + new_key)}. {value}\n"  # 65是字母A的ASCII码
+                        options_text += f"{chr(65 + new_key)}. {value}\n"  # 65 is the ASCII code for letter A
                         if QA['Answer'] == original_key:
-                            new_answer_key = chr(65 + new_key)  # 更新答案的键
+                            new_answer_key = chr(65 + new_key)  # Update the answer key
                     option_dict = {chr(65 + new_key): value for new_key, (original_key, value) in enumerate(options_items)}
 
                     questions_text = QA['Question']
@@ -153,7 +153,7 @@ class AnomlyGPTQuery(GPT4Query):
                                 "options": option_dict,
                             },
                         )
-                    # 确保我们找到了新的答案键
+                    # Ensure we found the new answer key
                     if new_answer_key is not None:
                         Answer.append(new_answer_key)
                     else:
@@ -224,7 +224,7 @@ class AnomlyGPTQuery(GPT4Query):
 #     model_name = args['anomalygpt_ckpt_path'].split('/')[-2]
 #     answers_json_path = f"answers_{few_shot_model}_shot_{model_name}.json"
 #
-#     # 用于存储所有答案
+#     # For storing all answers
 #     if os.path.exists(answers_json_path):
 #         with open(answers_json_path, "r") as file:
 #             all_answers_json = json.load(file)
@@ -237,15 +237,15 @@ class AnomlyGPTQuery(GPT4Query):
 #     processed_items = 0
 #
 #     for data_id, data in tqdm(enumerate(dataset), total=len(dataset), desc="Processing dataset"):
-#         # 如果已经有答案则跳过
+#         # If already have answers then skip
 #         if data["image_path"] in existing_images:
 #             continue
 #         if data["text_gt"] is None:
 #             continue
-#         # 从ADDataset中随机抽取数据作为few—shot, 要求类别一致
+#         # Randomly draw data from ADDataset as few_shot, require category consistency
 #         imgpaths_per_class = normal_dataset.imgpaths_per_class
 #         normal_set = imgpaths_per_class[data["clsname"]]["good"]
-#         # 从normal_set中随机抽取few_shot
+#         # Randomly draw few_shot from normal_set
 #         few_shot = random.sample(normal_set, few_shot_model)
 #         anomalygpt_query = AnomlyGPTQuery(image_path=data["image_path"], text_gt=data["text_gt"],
 #                            model=model, few_shot=few_shot, visualization=False)
@@ -264,7 +264,7 @@ class AnomlyGPTQuery(GPT4Query):
 #         processed_items += 1
 #         tqdm.write(f"Q1 accuracy: {Q1_correct / processed_items:.2f}")
 #
-#         # 更新答案记录
+#         # Update answer record
 #         for q, a, ga in zip(questions, answers, gpt_answers):
 #             answer_entry = {
 #                 "class": data['clsname'],
@@ -277,7 +277,7 @@ class AnomlyGPTQuery(GPT4Query):
 #             all_answers_json.append(answer_entry)
 #
 #         if data_id % 10 == 0 or data_id == len(dataset) - 1:
-#             # 保存答案为JSON
+#             # Save answers as JSON
 #             with open(answers_json_path, "w") as file:
 #                 json.dump(all_answers_json, file, indent=4)
 #
@@ -338,7 +338,7 @@ if __name__=="__main__":
     if not os.path.exists("result"):
         os.makedirs("result")
     print(f"Answers will be saved at {answers_json_path}")
-    # 用于存储所有答案
+    # For storing all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -380,7 +380,7 @@ if __name__=="__main__":
         print(f"Accuracy: {accuracy:.2f}")
 
         questions_type = [conversion["type"] for conversion in text_gt["conversation"]]
-        # 更新答案记录
+        # Update answer record
         for q, a, ga, qt in zip(questions, answers, gpt_answers, questions_type):
             answer_entry = {
                 "image": image_path,
@@ -392,7 +392,7 @@ if __name__=="__main__":
 
             all_answers_json.append(answer_entry)
 
-        # 保存答案为JSON
+        # Save answers as JSON
         with open(answers_json_path, "w") as file:
             json.dump(all_answers_json, file, indent=4)
 

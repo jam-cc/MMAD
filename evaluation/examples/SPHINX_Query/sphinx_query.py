@@ -19,7 +19,7 @@ sys.path.append("..")
 from helper.summary import caculate_accuracy_mmad
 from GPT4.gpt4v import GPT4Query, instruction
 
-# 设置环境变量 export HF_HOME=~/.cache/huggingface
+# Set environment variable export HF_HOME=~/.cache/huggingface
 os.environ["HF_HOME"] = "~/.cache/huggingface"
 from SPHINX import SPHINXModel
 from PIL import Image
@@ -84,7 +84,7 @@ if __name__=="__main__":
 
     parser.add_argument("--dtype", type=str, default="fp32")
 
-    parser.add_argument("--few_shot_model", type=int, default=1)
+    parser.add_argument("--few_shot_model", type=int, default=0)
     parser.add_argument("--similar_template", action="store_true")
     parser.add_argument("--reproduce", action="store_true")
 
@@ -115,7 +115,7 @@ if __name__=="__main__":
     if not os.path.exists("result"):
         os.makedirs("result")
     print(f"Answers will be saved at {answers_json_path}")
-    # 用于存储所有答案
+    # Used to store all answers
     if os.path.exists(answers_json_path):
         with open(answers_json_path, "r") as file:
             all_answers_json = json.load(file)
@@ -158,7 +158,7 @@ if __name__=="__main__":
         print(f"Accuracy: {accuracy:.2f}")
 
         questions_type = [conversion["type"] for conversion in text_gt["conversation"]]
-        # 更新答案记录
+        # Update answer records
         for q, a, ga, qt in zip(questions, answers, gpt_answers, questions_type):
             answer_entry = {
                 "image": image_path,
@@ -170,7 +170,7 @@ if __name__=="__main__":
 
             all_answers_json.append(answer_entry)
 
-        # 保存答案为JSON
+        # Save answers as JSON
         with open(answers_json_path, "w") as file:
             json.dump(all_answers_json, file, indent=4)
 

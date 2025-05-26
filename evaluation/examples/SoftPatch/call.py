@@ -29,7 +29,7 @@ from .src import sampler
 
 
 def set_torch_device():
-    # 初始化pynvml
+    # Initialize pynvml
     pynvml.nvmlInit()
 
     device_count = pynvml.nvmlDeviceGetCount()
@@ -45,15 +45,15 @@ def set_torch_device():
             max_free_memory = free_memory
             best_device = i
 
-    # 释放pynvml资源
+    # Release pynvml resources
     pynvml.nvmlShutdown()
 
-    # 设置PyTorch设备
+    # Set PyTorch device
     device = torch.device(f'cuda:{best_device}' if torch.cuda.is_available() else 'cpu')
     return device
 
 
-# 使用自动选择的设备
+# Use automatically selected device
 device = set_torch_device()
 
 patchcore_args = argparse.Namespace(
@@ -111,11 +111,11 @@ def build_patchcore(args=patchcore_args):
 def call_patchcore(image_path, few_shot, coresets, notation="bbox", args=patchcore_args, visualize=False):
     transform = transforms.Compose([
         transforms.Resize((args.imagesize, args.imagesize)),
-        transforms.ToTensor(),  # 转换为 Tensor
+        transforms.ToTensor(),  # Convert to Tensor
     ])
     query_image = Image.open(image_path).convert('RGB')
     original_size = query_image.size
-    # original_size缩放到最长边为512
+    # Scale original_size to longest side 512
     max_size = 512
     if max(original_size) > max_size:
         scale = max_size / max(original_size)
@@ -138,7 +138,7 @@ def call_patchcore(image_path, few_shot, coresets, notation="bbox", args=patchco
         image_scores, masks = coreset_instance.predict(query_image_tensor.unsqueeze(0))
         anomaly_map.append(masks[0])
 
-    # 计算平均 anomaly_map
+    # Calculate average anomaly_map
     anomaly_map = np.mean(anomaly_map, axis=0)
     anomaly_map = cv2.resize(anomaly_map, original_size, interpolation=cv2.INTER_LINEAR)
 
@@ -223,7 +223,7 @@ def call_patchcore(image_path, few_shot, coresets, notation="bbox", args=patchco
         if notation == "contour":
             # 画轮廓
             for contour in contours:
-                cv2.drawContours(query_image_np, [contour], -1, (255, 0, 0, 255), 2)  # 红色轮廓，宽度为2
+                cv2.drawContours(query_image_np, [contour], -1, (255, 0, 0, 255), 2)  # Red contour, width 2
 
         elif notation == "bbox":
             # 画边界框
@@ -268,7 +268,7 @@ def call_patchcore(image_path, few_shot, coresets, notation="bbox", args=patchco
 
             # 画边界框
             for x, y, w, h in bounding_boxes:
-                cv2.rectangle(query_image_np, (x, y), (x + w, y + h), (255, 0, 0, 255), 2)  # 红色边界框，宽度为2
+                cv2.rectangle(query_image_np, (x, y), (x + w, y + h), (255, 0, 0, 255), 2)  # Red bounding box, width 2
 
         # 转换回 PIL Image
         combined_image = Image.fromarray(query_image_np)
@@ -277,7 +277,7 @@ def call_patchcore(image_path, few_shot, coresets, notation="bbox", args=patchco
         # 选择一个 colormap，例如 'viridis'
         colormap = cm.get_cmap('viridis')
         colored_anomaly_map = colormap(anomaly_map_normalized)  # 正则化并应用 colormap
-        colored_anomaly_map = (colored_anomaly_map[:, :, :3] * 255).astype(np.uint8)  # 转换为 8-bit RGB
+        colored_anomaly_map = (colored_anomaly_map[:, :, :3] * 255).astype(np.uint8)  # Convert to 8-bit RGB
 
         anomaly_map_image = Image.fromarray(colored_anomaly_map).convert("RGBA")
 
@@ -308,10 +308,10 @@ def call_patchcore(image_path, few_shot, coresets, notation="bbox", args=patchco
     if visualize:
         fig, ax = plt.subplots(1, 2)
         ax[0].imshow(combined_image)
-        ax[0].axis('off')  # 关闭坐标轴
+        ax[0].axis('off')  # Turn off coordinate axes
         ax[1].imshow(anomaly_map, cmap='viridis')
-        ax[1].axis('off')  # 关闭坐标轴
-        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # 减小边距
+        ax[1].axis('off')  # Turn off coordinate axes
+        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # Reduce margins
         plt.show()
     return image_buffer
 
@@ -430,7 +430,7 @@ def call_ground_truth(image_path, gt_path, notation="bbox", visualize=False):
         gt_image = image.copy()
         # 画边界框
         for x, y, w, h in bounding_boxes:
-            cv2.rectangle(gt_image, (x, y), (x + w, y + h), (255, 0, 0, 255), 2)  # 红色边界框，宽度为2
+            cv2.rectangle(gt_image, (x, y), (x + w, y + h), (255, 0, 0, 255), 2)  # Red bounding box, width 2
     elif notation == "highlight":
         viridis = cm.get_cmap('viridis')
         normalized_gt_image = mask / mask.max()
@@ -449,7 +449,7 @@ def call_ground_truth(image_path, gt_path, notation="bbox", visualize=False):
     if visualize:
         plt.imshow(gt_image)
         plt.axis('off')
-        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # 减小边距
+        plt.subplots_adjust(left=0, right=1, top=1, bottom=0)  # Reduce margins
         plt.show()
 
     return image_buffer
