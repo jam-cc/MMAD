@@ -16,7 +16,8 @@
 - What are the key challenges in industrial anomaly detection for MLLMs?
 
 ## 📜 News
-
+- **[2025-07-08]** We've added support for the Qwen2.5-VL series, which has raised the bar for open-source general-purpose models. 
+- **[2025-05-26]** Main experiment results are in ./all_results for detailed research.
 - **[2025-01-28]** MMAD paper is accepted by [ICLR 2025](https://openreview.net/forum?id=JDiER86r8v).
 - **[2025-01-08]** We released a human baseline for MMAD along with some further analysis. For more details, please refer to the latest [paper](https://arxiv.org/abs/2410.09453).
 - **[2024-12-16]** We have released textual domain knowledge for anomaly detection, which can be used for image-text research in MMAD dataset. 
