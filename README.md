@@ -30,15 +30,11 @@
 In the field of industrial inspection, Multimodal Large Language Models (MLLMs) have a high potential to renew the paradigms in practical applications due to their robust language capabilities and generalization abilities. However, despite their impressive problem-solving skills in many domains, MLLMs' ability in industrial anomaly detection has not been systematically studied. To bridge this gap, we present MMAD, the first-ever full-spectrum MLLMs benchmark in industrial Anomaly Detection. We defined seven key subtasks of MLLMs in industrial inspection and designed a novel pipeline to generate the MMAD dataset with 39,672 questions for 8,366 industrial images. With MMAD, we have conducted a comprehensive, quantitative evaluation of various state-of-the-art MLLMs.
 
 
-<p align="center">
-    <img src="./figs/overview.png" width="100%" height="100%">
-</p>
+![](./figs/overview.png)
 
 ## 📐 Dataset Examples
 We collected 8,366 samples from 38 classes of industrial products across 4 public datasets, generating a total of 39,672 multiple-choice questions in 7 key subtasks.
-<p align="center">
-    <img src="./figs/examples.jpg" width="100%" height="100%">
-</p>
+![](./figs/examples.jpg)
 
 [//]: # (## 📊 Results)
 
