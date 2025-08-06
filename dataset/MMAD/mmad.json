@@ -89431,8 +89431,8 @@
             "MVTec-AD/pill/train/good/240.png"
         ]
     },
-    "DS-MVTec/pill/image/good/000.png": {
-        "image_path": "image/good/000.png",
+    "MVTec-AD/pill/test/good/000.png": {
+        "image_path": "MVTec-AD/pill/test/good/000.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -89448,112 +89448,52 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "A coin.",
-                    "B": "A nut for a bolt.",
-                    "C": "A pill.",
-                    "D": "A button."
+                    "A": "A bottle of medicine.",
+                    "B": "An oval-shaped pill.",
+                    "C": "A candy.",
+                    "D": "A coin."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the shape of the object?",
-                "Answer": "A",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Hexagonal.",
-                    "B": "Triangular.",
-                    "C": "Square.",
-                    "D": "Circular."
+                    "A": "The pill has a square shape.",
+                    "B": "The pill has a smooth surface with red specks.",
+                    "C": "The pill has a rough texture.",
+                    "D": "The pill has a metallic sheen."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
+                "Question": "What is a specific characteristic of the embossed letters on the pill?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Green.",
-                    "B": "Silver.",
-                    "C": "Blue.",
-                    "D": "Red."
+                    "A": "The letters are lowercase \"ff\".",
+                    "B": "The letters are capital \"FF\".",
+                    "C": "The letters are in the bottom left corner.",
+                    "D": "The letters are in a cursive font."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What is the object primarily used for?",
-                "Answer": "A",
+                "Question": "What is the purpose of the pill's design features?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Fastening components.",
-                    "B": "Holding papers.",
-                    "C": "Sealing bottles.",
-                    "D": "Decoration."
+                    "A": "To make the pill heavier.",
+                    "B": "To ensure easy identification and branding.",
+                    "C": "To make the pill dissolve faster.",
+                    "D": "To make the pill taste better."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "A",
-                "Options": {
-                    "A": "A nut for a bolt.",
-                    "B": "A button.",
-                    "C": "A coin.",
-                    "D": "A pill."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "What is the shape of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Square.",
-                    "B": "Circular.",
-                    "C": "Hexagonal.",
-                    "D": "Triangular."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Red.",
-                    "B": "Blue.",
-                    "C": "Silver.",
-                    "D": "Green."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the object primarily used for?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Decoration.",
-                    "B": "Sealing bottles.",
-                    "C": "Fastening components.",
-                    "D": "Holding papers."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/114.png",
             "MVTec-AD/pill/train/good/111.png",
@@ -89575,8 +89515,8 @@
             "MVTec-AD/pill/train/good/257.png"
         ]
     },
-    "DS-MVTec/pill/image/good/001.png": {
-        "image_path": "image/good/001.png",
+    "MVTec-AD/pill/test/good/001.png": {
+        "image_path": "MVTec-AD/pill/test/good/001.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -89590,114 +89530,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "D",
+                "Answer": "B",
                 "Options": {
-                    "A": "A pill.",
-                    "B": "A button.",
-                    "C": "A coin.",
-                    "D": "A nut for a bolt."
+                    "A": "A candy.",
+                    "B": "A pill.",
+                    "C": "A button.",
+                    "D": "A coin."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the shape of the object?",
-                "Answer": "C",
+                "Question": "There is no defect in the object. What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Circular.",
-                    "B": "Square.",
-                    "C": "Hexagonal.",
-                    "D": "Triangular."
+                    "A": "The pill has a rough texture.",
+                    "B": "The pill has a smooth surface with embossed letters \"FF\" and speckled markings.",
+                    "C": "The pill has a metallic sheen.",
+                    "D": "The pill has a glossy finish."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
-                "Answer": "A",
+                "Question": "There is no defect in the object. What is the relative position or characteristic of the embossed letters \"FF\"?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Silver.",
-                    "B": "Blue.",
-                    "C": "Red.",
-                    "D": "Green."
+                    "A": "The letters \"FF\" are located at the bottom of the pill.",
+                    "B": "The letters \"FF\" are located in the center of the pill.",
+                    "C": "The letters \"FF\" are located on the side of the pill.",
+                    "D": "The letters \"FF\" are located at the top of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What is the object primarily used for?",
-                "Answer": "D",
+                "Question": "There is no defect in the object. What is the purpose or characteristic of the speckled markings on the pill?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Sealing bottles.",
-                    "B": "Holding papers.",
-                    "C": "Decoration.",
-                    "D": "Fastening components."
+                    "A": "The speckles are used to indicate the pill's expiration date.",
+                    "B": "The speckles are intentional markings or components of the pill's design.",
+                    "C": "The speckles are used to make the pill more visually appealing.",
+                    "D": "The speckles are used to enhance the pill's flavor."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "A",
-                "Options": {
-                    "A": "A nut for a bolt.",
-                    "B": "A button.",
-                    "C": "A coin.",
-                    "D": "A pill."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "What is the shape of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Square.",
-                    "B": "Circular.",
-                    "C": "Hexagonal.",
-                    "D": "Triangular."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Red.",
-                    "B": "Blue.",
-                    "C": "Silver.",
-                    "D": "Green."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the object primarily used for?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Decoration.",
-                    "B": "Sealing bottles.",
-                    "C": "Fastening components.",
-                    "D": "Holding papers."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/103.png",
             "MVTec-AD/pill/train/good/109.png",
@@ -89719,8 +89599,8 @@
             "MVTec-AD/pill/train/good/164.png"
         ]
     },
-    "DS-MVTec/pill/image/good/002.png": {
-        "image_path": "image/good/002.png",
+    "MVTec-AD/pill/test/good/002.png": {
+        "image_path": "MVTec-AD/pill/test/good/002.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -89734,114 +89614,42 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "D",
+                "Answer": "B",
                 "Options": {
-                    "A": "A coin.",
-                    "B": "A pill.",
-                    "C": "A button.",
-                    "D": "A nut for a bolt."
+                    "A": "A circular coin.",
+                    "B": "An oval-shaped pill.",
+                    "C": "A square-shaped tile.",
+                    "D": "A triangular sticker."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the shape of the object?",
-                "Answer": "C",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Circular.",
-                    "B": "Square.",
-                    "C": "Hexagonal.",
-                    "D": "Triangular."
+                    "A": "The pill has a square shape with a smooth surface.",
+                    "B": "The pill has an oval shape with an imprint \"FF\" and a speckled pattern.",
+                    "C": "The pill has a triangular shape with a glossy finish.",
+                    "D": "The pill has a rectangular shape with a textured surface."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Red.",
-                    "B": "Blue.",
-                    "C": "Silver.",
-                    "D": "Green."
+                    "A": "The imprint \"FF\" is located at the bottom of the pill.",
+                    "B": "The speckled pattern is evenly distributed across the surface of the pill.",
+                    "C": "The imprint \"FF\" is located on the side of the pill.",
+                    "D": "The speckled pattern is concentrated at the edges of the pill."
                 },
                 "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the object primarily used for?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Holding papers.",
-                    "B": "Decoration.",
-                    "C": "Fastening components.",
-                    "D": "Sealing bottles."
-                },
-                "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "A",
-                "Options": {
-                    "A": "A nut for a bolt.",
-                    "B": "A button.",
-                    "C": "A coin.",
-                    "D": "A pill."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "What is the shape of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Square.",
-                    "B": "Circular.",
-                    "C": "Hexagonal.",
-                    "D": "Triangular."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Red.",
-                    "B": "Blue.",
-                    "C": "Silver.",
-                    "D": "Green."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the object primarily used for?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Decoration.",
-                    "B": "Sealing bottles.",
-                    "C": "Fastening components.",
-                    "D": "Holding papers."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/114.png",
             "MVTec-AD/pill/train/good/111.png",
@@ -89863,8 +89671,8 @@
             "MVTec-AD/pill/train/good/227.png"
         ]
     },
-    "DS-MVTec/pill/image/good/003.png": {
-        "image_path": "image/good/003.png",
+    "MVTec-AD/pill/test/good/003.png": {
+        "image_path": "MVTec-AD/pill/test/good/003.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -89880,48 +89688,36 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "A coin.",
-                    "B": "A nut for a bolt.",
-                    "C": "A pill.",
-                    "D": "A button."
+                    "A": "A bottle of water.",
+                    "B": "An oval-shaped pill with a speckled pattern.",
+                    "C": "A piece of jewelry.",
+                    "D": "A small electronic device."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the shape of the object?",
-                "Answer": "C",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Square.",
-                    "B": "Triangular.",
-                    "C": "Hexagonal.",
-                    "D": "Circular."
+                    "A": "The pill has a square shape with a smooth surface.",
+                    "B": "The pill has an oval shape with a speckled pattern and embossed letters \"FF.\"",
+                    "C": "The pill has a circular shape with a glossy finish.",
+                    "D": "The pill has a triangular shape with a textured surface."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
-                "Answer": "D",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Green.",
-                    "B": "Red.",
-                    "C": "Blue.",
-                    "D": "Silver."
+                    "A": "The letters \"FF\" are embossed on the lower left corner of the pill.",
+                    "B": "The letters \"FF\" are embossed in the center of the pill.",
+                    "C": "The letters \"FF\" are embossed on the upper right corner of the pill.",
+                    "D": "The letters \"FF\" are embossed on the bottom edge of the pill."
                 },
                 "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the object primarily used for?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Holding papers.",
-                    "B": "Decoration.",
-                    "C": "Fastening components.",
-                    "D": "Sealing bottles."
-                },
-                "type": "Object Analysis",
                 "annotation": true
             }
         ],
@@ -89947,8 +89743,8 @@
             "MVTec-AD/pill/train/good/240.png"
         ]
     },
-    "DS-MVTec/pill/image/good/004.png": {
-        "image_path": "image/good/004.png",
+    "MVTec-AD/pill/test/good/004.png": {
+        "image_path": "MVTec-AD/pill/test/good/004.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -89964,112 +89760,52 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "A piece of modern art.",
-                    "B": "A metal gear.",
-                    "C": "A whiteboard eraser.",
-                    "D": "An oval-shaped pill."
+                    "A": "A bottle of water.",
+                    "B": "An oval-shaped, white pill with an \"FF\" imprint.",
+                    "C": "A piece of candy.",
+                    "D": "A small electronic device."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located?",
-                "Answer": "A",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "On a black background.",
-                    "B": "Inside a machinery assembly.",
-                    "C": "In a natural outdoor setting.",
-                    "D": "On a white background."
+                    "A": "The pill has a square shape with a \"GG\" imprint.",
+                    "B": "The pill has an oval shape with an \"FF\" imprint and speckled patterns.",
+                    "C": "The pill has a triangular shape with a \"HH\" imprint.",
+                    "D": "The pill has a circular shape with a \"KK\" imprint."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
+                "Answer": "B",
                 "Options": {
-                    "A": "It is transparent.",
-                    "B": "It has red speckles.",
-                    "C": "It is multicolored.",
-                    "D": "It has a metallic sheen."
+                    "A": "The \"FF\" imprint is located at the bottom of the pill.",
+                    "B": "The \"FF\" imprint is located in the center of the pill.",
+                    "C": "The \"FF\" imprint is located on the side of the pill.",
+                    "D": "The \"FF\" imprint is located at the top of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "B",
+                "Question": "What is an additional piece of information about the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "It contains the embossing \"FF\".",
-                    "B": "It appears to have a uniform manufacturing quality.",
-                    "C": "It is a soft and chewable item.",
-                    "D": "It is used as a medication."
+                    "A": "The pill is designed to dissolve quickly in water.",
+                    "B": "The pill is intended to be chewed before swallowing.",
+                    "C": "The pill's speckled pattern is a characteristic of its design, not a defect.",
+                    "D": "The pill is meant to be taken with a meal."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "B",
-                "Options": {
-                    "A": "An oval-shaped pill.",
-                    "B": "A metal gear.",
-                    "C": "A whiteboard eraser.",
-                    "D": "A piece of modern art."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "Where is the object located?",
-                "Answer": "C",
-                "Options": {
-                    "A": "On a white background.",
-                    "B": "In a natural outdoor setting.",
-                    "C": "On a black background.",
-                    "D": "Inside a machinery assembly."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
-                "Options": {
-                    "A": "It has red speckles.",
-                    "B": "It is transparent.",
-                    "C": "It is multicolored.",
-                    "D": "It has a metallic sheen."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "It is used as a medication.",
-                    "B": "It contains the embossing \"FF\".",
-                    "C": "It appears to have a uniform manufacturing quality.",
-                    "D": "It is a soft and chewable item."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/103.png",
             "MVTec-AD/pill/train/good/102.png",
@@ -90091,8 +89827,8 @@
             "MVTec-AD/pill/train/good/265.png"
         ]
     },
-    "DS-MVTec/pill/image/good/005.png": {
-        "image_path": "image/good/005.png",
+    "MVTec-AD/pill/test/good/005.png": {
+        "image_path": "MVTec-AD/pill/test/good/005.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -90106,114 +89842,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "A",
+                "Answer": "B",
                 "Options": {
-                    "A": "A gear.",
-                    "B": "A washer.",
-                    "C": "A pill.",
-                    "D": "A bolt."
+                    "A": "A candy.",
+                    "B": "A pill.",
+                    "C": "A coin.",
+                    "D": "A button."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the primary shape of the object?",
-                "Answer": "A",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Circular.",
-                    "B": "Square.",
-                    "C": "Triangular.",
-                    "D": "Oval."
+                    "A": "The pill has a square shape.",
+                    "B": "The pill has a smooth surface with imprinted letters \"FF\".",
+                    "C": "The pill has a metallic texture.",
+                    "D": "The pill has a rough texture."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object's surface?",
-                "Answer": "D",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Engraved with letters.",
-                    "B": "Shiny with ridges.",
-                    "C": "Rough with scratches.",
-                    "D": "Smooth with speckles."
+                    "A": "The imprinted letters \"FF\" are located at the bottom of the pill.",
+                    "B": "The imprinted letters \"FF\" are located in the center of the pill.",
+                    "C": "The imprinted letters \"FF\" are located on the side of the pill.",
+                    "D": "The imprinted letters \"FF\" are located at the top of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
+                "Question": "What is an additional piece of information about the object?",
+                "Answer": "D",
                 "Options": {
-                    "A": "Reddish-brown.",
-                    "B": "Black.",
-                    "C": "Greenish-blue.",
-                    "D": "White with speckles."
+                    "A": "The pill is designed to dissolve slowly in the stomach.",
+                    "B": "The pill is used for treating eye infections.",
+                    "C": "The pill is a placebo used in clinical trials.",
+                    "D": "The pill is formulated with red-brown speckles as part of its normal characteristics."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "C",
-                "Options": {
-                    "A": "A bolt.",
-                    "B": "A pill.",
-                    "C": "A gear.",
-                    "D": "A washer."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "What is the primary shape of the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Square.",
-                    "B": "Circular.",
-                    "C": "Oval.",
-                    "D": "Triangular."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object's surface?",
-                "Answer": "A",
-                "Options": {
-                    "A": "Smooth with speckles.",
-                    "B": "Engraved with letters.",
-                    "C": "Rough with scratches.",
-                    "D": "Shiny with ridges."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Reddish-brown.",
-                    "B": "White with speckles.",
-                    "C": "Greenish-blue.",
-                    "D": "Black."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/103.png",
             "MVTec-AD/pill/train/good/111.png",
@@ -90235,8 +89911,8 @@
             "MVTec-AD/pill/train/good/255.png"
         ]
     },
-    "DS-MVTec/pill/image/good/006.png": {
-        "image_path": "image/good/006.png",
+    "MVTec-AD/pill/test/good/006.png": {
+        "image_path": "MVTec-AD/pill/test/good/006.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -90250,114 +89926,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "D",
+                "Answer": "B",
                 "Options": {
-                    "A": "A piece of modern art.",
-                    "B": "An oval-shaped pill.",
-                    "C": "A whiteboard eraser.",
-                    "D": "A metal gear."
+                    "A": "A bottle of water.",
+                    "B": "An oval-shaped pill with an embossed double \"F\".",
+                    "C": "A piece of jewelry.",
+                    "D": "A small electronic device."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located?",
-                "Answer": "D",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Inside a machinery assembly.",
-                    "B": "In a natural outdoor setting.",
-                    "C": "On a white background.",
-                    "D": "On a black background."
+                    "A": "The pill has a square shape with a single \"F\" embossed.",
+                    "B": "The pill has a general white background with small pinkish or reddish speckles.",
+                    "C": "The pill is transparent with a blue tint.",
+                    "D": "The pill has a metallic surface with engraved numbers."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
+                "Question": "What is a specific characteristic of the pill's embossed \"F\"?",
+                "Answer": "B",
                 "Options": {
-                    "A": "It is multicolored.",
-                    "B": "It is transparent.",
-                    "C": "It has red speckles.",
-                    "D": "It has a metallic sheen."
+                    "A": "The \"F\" is embossed in a circular pattern.",
+                    "B": "The \"F\" characters are clear and well-defined.",
+                    "C": "The \"F\" is embossed in a cursive font.",
+                    "D": "The \"F\" is embossed in a 3D holographic design."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "C",
+                "Question": "What is the effect or purpose of the pill's speckled design?",
+                "Answer": "B",
                 "Options": {
-                    "A": "It is a soft and chewable item.",
-                    "B": "It contains the embossing \"FF\".",
-                    "C": "It appears to have a uniform manufacturing quality.",
-                    "D": "It is used as a medication."
+                    "A": "The speckles are used to make the pill glow in the dark.",
+                    "B": "The speckles are part of the pill's normal pattern and do not affect its integrity or identification.",
+                    "C": "The speckles are used to make the pill magnetic.",
+                    "D": "The speckles are used to make the pill dissolve faster in water."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "B",
-                "Options": {
-                    "A": "An oval-shaped pill.",
-                    "B": "A metal gear.",
-                    "C": "A whiteboard eraser.",
-                    "D": "A piece of modern art."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "Where is the object located?",
-                "Answer": "C",
-                "Options": {
-                    "A": "On a white background.",
-                    "B": "In a natural outdoor setting.",
-                    "C": "On a black background.",
-                    "D": "Inside a machinery assembly."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
-                "Options": {
-                    "A": "It has red speckles.",
-                    "B": "It is transparent.",
-                    "C": "It is multicolored.",
-                    "D": "It has a metallic sheen."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "It is used as a medication.",
-                    "B": "It contains the embossing \"FF\".",
-                    "C": "It appears to have a uniform manufacturing quality.",
-                    "D": "It is a soft and chewable item."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/103.png",
             "MVTec-AD/pill/train/good/109.png",
@@ -90379,8 +89995,8 @@
             "MVTec-AD/pill/train/good/212.png"
         ]
     },
-    "DS-MVTec/pill/image/good/007.png": {
-        "image_path": "image/good/007.png",
+    "MVTec-AD/pill/test/good/007.png": {
+        "image_path": "MVTec-AD/pill/test/good/007.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -90394,48 +90010,48 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "A",
+                "Answer": "B",
                 "Options": {
-                    "A": "A wing nut.",
-                    "B": "A screw.",
-                    "C": "A pill.",
-                    "D": "A button."
+                    "A": "A bottle of water.",
+                    "B": "An oval-shaped pill with an \"FF\" imprint.",
+                    "C": "A piece of candy.",
+                    "D": "A small coin."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the shape of the product?",
+                "Question": "What are the subcomponents or elements of the object?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Square.",
-                    "B": "Hexagonal.",
-                    "C": "Oval.",
-                    "D": "Round."
+                    "A": "The pill has a square shape with a \"GG\" imprint.",
+                    "B": "The pill has a white background with red speckles and a raised \"FF\" imprint.",
+                    "C": "The pill has a blue background with green speckles.",
+                    "D": "The pill has a triangular shape with a \"HH\" imprint."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the product?",
-                "Answer": "D",
+                "Question": "What is a specific characteristic of the red speckles on the pill?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Black.",
-                    "B": "Gold.",
-                    "C": "White with red speckles.",
-                    "D": "Silver."
+                    "A": "The red speckles are concentrated in the center of the pill.",
+                    "B": "The red speckles are evenly distributed throughout the pill's material.",
+                    "C": "The red speckles are only present on the edges of the pill.",
+                    "D": "The red speckles form a specific pattern resembling a flower."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "Does the product have an imprint on its surface?",
+                "Question": "What is the purpose of the red speckles on the pill?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Yes, with the imprint \"FF\".",
-                    "B": "No, it is smooth.",
-                    "C": "Yes, with a logo.",
-                    "D": "Yes, with a numeric imprint."
+                    "A": "The red speckles are used to make the pill taste better.",
+                    "B": "The red speckles are part of the pill's design and do not indicate a quality issue.",
+                    "C": "The red speckles are used to make the pill dissolve faster.",
+                    "D": "The red speckles are used to make the pill glow in the dark."
                 },
                 "type": "Object Analysis",
                 "annotation": true
@@ -90480,46 +90096,46 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "An oval-shaped pill.",
-                    "B": "A metal gear.",
-                    "C": "A piece of modern art.",
-                    "D": "A whiteboard eraser."
+                    "A": "A candy.",
+                    "B": "An oval-shaped pill with an embossed \"FF\".",
+                    "C": "A button.",
+                    "D": "A coin."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located?",
+                "Question": "What are the subcomponents or elements of the object?",
                 "Answer": "B",
                 "Options": {
-                    "A": "In a natural outdoor setting.",
-                    "B": "On a black background.",
-                    "C": "Inside a machinery assembly.",
-                    "D": "On a white background."
+                    "A": "The pill has a square shape with a smooth surface.",
+                    "B": "The pill has an oval shape with an embossed \"FF\" and red speckles.",
+                    "C": "The pill has a triangular shape with a glossy finish.",
+                    "D": "The pill has a circular shape with a textured surface."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
                 "Answer": "B",
                 "Options": {
-                    "A": "It is transparent.",
-                    "B": "It has a metallic sheen.",
-                    "C": "It is multicolored.",
-                    "D": "It has red speckles."
+                    "A": "The embossed \"FF\" is located on the bottom side of the pill.",
+                    "B": "The red speckles are uniformly distributed across the surface of the pill.",
+                    "C": "The embossed \"FF\" is located on the top side of the pill.",
+                    "D": "The red speckles are concentrated on one side of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "B",
+                "Question": "What is an additional piece of information about the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "It contains the embossing \"FF\".",
-                    "B": "It appears to have a uniform manufacturing quality.",
-                    "C": "It is used as a medication.",
-                    "D": "It is a soft and chewable item."
+                    "A": "The pill is designed to dissolve quickly in water.",
+                    "B": "The pill is intended for use as a decorative item.",
+                    "C": "The pill's red speckles are part of its design and not considered defects.",
+                    "D": "The pill is made of a material that changes color when exposed to light."
                 },
                 "type": "Object Analysis",
                 "annotation": true
@@ -90547,41 +90163,41 @@
             "MVTec-AD/pill/train/good/250.png"
         ]
     },
-    "DS-MVTec/pill/image/good/009.png": {
-        "image_path": "image/good/009.png",
+    "MVTec-AD/pill/test/good/009.png": {
+        "image_path": "MVTec-AD/pill/test/good/009.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
-                "Answer": "A",
+                "Answer": "B",
                 "Options": {
-                    "A": "No.",
-                    "B": "Yes."
+                    "A": "Yes.",
+                    "B": "No."
                 },
                 "type": "Anomaly Detection",
                 "annotation": true
             },
             {
-                "Question": "What is embossed in the center of the pill?",
-                "Answer": "D",
+                "Question": "What kind of product is in the image?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Numbers.",
-                    "B": "No embossing.",
-                    "C": "The letter \"G\".",
-                    "D": "The letters \"FF\"."
+                    "A": "A bottle of medicine.",
+                    "B": "An oval-shaped pill with embossed letters.",
+                    "C": "A piece of candy.",
+                    "D": "A small electronic device."
                 },
-                "type": "Object Structure",
+                "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Are the red particulates on the pill considered defects?",
-                "Answer": "B",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "Yes, they are defects.",
-                    "B": "No, they are part of the design.",
-                    "C": "Yes, they are irregularities.",
-                    "D": "No, they indicate wear and tear."
+                    "A": "The pill has a square shape with no markings.",
+                    "B": "The pill has a smooth surface with no additional features.",
+                    "C": "The pill has embossed letters \"FF\" and speckled red particulate matter.",
+                    "D": "The pill has a metallic coating with embedded stones."
                 },
-                "type": "Object Analysis",
+                "type": "Object Structure",
                 "annotation": false
             }
         ],
@@ -90607,15 +90223,15 @@
             "MVTec-AD/pill/train/good/182.png"
         ]
     },
-    "DS-MVTec/pill/image/good/010.png": {
-        "image_path": "image/good/010.png",
+    "MVTec-AD/pill/test/good/010.png": {
+        "image_path": "MVTec-AD/pill/test/good/010.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
-                "Answer": "A",
+                "Answer": "B",
                 "Options": {
-                    "A": "No.",
-                    "B": "Yes."
+                    "A": "Yes.",
+                    "B": "No."
                 },
                 "type": "Anomaly Detection",
                 "annotation": true
@@ -90624,46 +90240,46 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "A camera lens.",
-                    "B": "A metal gear.",
-                    "C": "A coin.",
-                    "D": "An oval-shaped pill."
+                    "A": "A bottle of water.",
+                    "B": "An oval-shaped pill with embossed letters.",
+                    "C": "A piece of jewelry.",
+                    "D": "A small electronic device."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located?",
+                "Question": "What are the subcomponents or elements of the object?",
                 "Answer": "C",
                 "Options": {
-                    "A": "On a white laboratory countertop.",
-                    "B": "In a natural outdoor environment.",
-                    "C": "In a studio setting.",
-                    "D": "Inside a machine."
+                    "A": "The pill has a square shape with no markings.",
+                    "B": "The pill has a smooth surface with no text.",
+                    "C": "The pill has an oval shape with embossed capital letters \"FF\" and small, reddish-brown speckles.",
+                    "D": "The pill has a rough texture with irregular patterns."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
                 "Answer": "C",
                 "Options": {
-                    "A": "Engraved with characters.",
-                    "B": "Speckled with various colors.",
-                    "C": "Glossy with reflective surface.",
-                    "D": "Smooth with a uniform color."
+                    "A": "The embossed letters are located at the bottom of the pill.",
+                    "B": "The reddish-brown speckles are concentrated on one side of the pill.",
+                    "C": "The embossed letters \"FF\" are in the center of the pill.",
+                    "D": "The pill has a green base color with blue speckles."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be inferred about the object?",
+                "Question": "What is an additional piece of information about the object?",
                 "Answer": "C",
                 "Options": {
-                    "A": "It is a decorative item.",
-                    "B": "It is used in pharmaceuticals.",
-                    "C": "It is a component of industrial machinery.",
-                    "D": "It indicates some form of currency."
+                    "A": "The pill is designed to dissolve quickly in water.",
+                    "B": "The pill is made of a material that changes color when exposed to light.",
+                    "C": "The pill's speckles are an inherent part of its design and do not indicate any defect.",
+                    "D": "The pill is intended to be used as a decorative item."
                 },
                 "type": "Object Analysis",
                 "annotation": true
@@ -90691,8 +90307,8 @@
             "MVTec-AD/pill/train/good/249.png"
         ]
     },
-    "DS-MVTec/pill/image/good/011.png": {
-        "image_path": "image/good/011.png",
+    "MVTec-AD/pill/test/good/011.png": {
+        "image_path": "MVTec-AD/pill/test/good/011.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -90706,114 +90322,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "C",
+                "Answer": "B",
                 "Options": {
-                    "A": "An oval-shaped pill.",
-                    "B": "A whiteboard eraser.",
-                    "C": "A metal gear.",
-                    "D": "A piece of modern art."
+                    "A": "A bottle of medicine.",
+                    "B": "An oval-shaped pill with an imprint.",
+                    "C": "A piece of candy.",
+                    "D": "A button."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located?",
+                "Question": "What are the subcomponents or elements of the object?",
                 "Answer": "B",
                 "Options": {
-                    "A": "In a natural outdoor setting.",
-                    "B": "On a black background.",
-                    "C": "Inside a machinery assembly.",
-                    "D": "On a white background."
+                    "A": "The pill has a square shape with no imprint.",
+                    "B": "The pill has an oval shape with an imprint of the letters \"FF\".",
+                    "C": "The pill has a circular shape with a logo.",
+                    "D": "The pill has a triangular shape with numbers."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
+                "Question": "What is a specific characteristic of the subcomponent?",
                 "Answer": "B",
                 "Options": {
-                    "A": "It is multicolored.",
-                    "B": "It has a metallic sheen.",
-                    "C": "It is transparent.",
-                    "D": "It has red speckles."
+                    "A": "The imprint is poorly defined and off-center.",
+                    "B": "The imprint of the letters \"FF\" is well-defined and centered.",
+                    "C": "The imprint is a symbol instead of letters.",
+                    "D": "The imprint is in the lower left corner."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be provided about the object?",
+                "Question": "What is an additional piece of information about the object?",
                 "Answer": "A",
                 "Options": {
-                    "A": "It appears to have a uniform manufacturing quality.",
-                    "B": "It is used as a medication.",
-                    "C": "It contains the embossing \"FF\".",
-                    "D": "It is a soft and chewable item."
+                    "A": "The pill is designed to dissolve slowly in water.",
+                    "B": "The reddish speckles are considered defects.",
+                    "C": "The pill is made of plastic.",
+                    "D": "The pill is intended for immediate release of medication."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "B",
-                "Options": {
-                    "A": "An oval-shaped pill.",
-                    "B": "A metal gear.",
-                    "C": "A whiteboard eraser.",
-                    "D": "A piece of modern art."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "Where is the object located?",
-                "Answer": "C",
-                "Options": {
-                    "A": "On a white background.",
-                    "B": "In a natural outdoor setting.",
-                    "C": "On a black background.",
-                    "D": "Inside a machinery assembly."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
-                "Options": {
-                    "A": "It has red speckles.",
-                    "B": "It is transparent.",
-                    "C": "It is multicolored.",
-                    "D": "It has a metallic sheen."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "It is used as a medication.",
-                    "B": "It contains the embossing \"FF\".",
-                    "C": "It appears to have a uniform manufacturing quality.",
-                    "D": "It is a soft and chewable item."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/115.png",
             "MVTec-AD/pill/train/good/107.png",
@@ -90835,8 +90391,8 @@
             "MVTec-AD/pill/train/good/234.png"
         ]
     },
-    "DS-MVTec/pill/image/good/012.png": {
-        "image_path": "image/good/012.png",
+    "MVTec-AD/pill/test/good/012.png": {
+        "image_path": "MVTec-AD/pill/test/good/012.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -90850,114 +90406,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "A",
+                "Answer": "B",
                 "Options": {
-                    "A": "A wing nut.",
-                    "B": "A screw.",
-                    "C": "A button.",
-                    "D": "A pill."
+                    "A": "A bottle of medicine.",
+                    "B": "An oval-shaped pill.",
+                    "C": "A candy.",
+                    "D": "A coin."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the shape of the product?",
+                "Question": "What are the subcomponents or elements of the object?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Round.",
-                    "B": "Hexagonal.",
-                    "C": "Oval.",
-                    "D": "Square."
+                    "A": "The pill has a square shape.",
+                    "B": "The pill has embossed letters \"FF\" in the center.",
+                    "C": "The pill has a smooth texture without any markings.",
+                    "D": "The pill has a metallic surface."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the product?",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Black.",
-                    "B": "Silver.",
-                    "C": "White with red speckles.",
-                    "D": "Gold."
+                    "A": "The embossed letters \"FF\" are located at the bottom of the pill.",
+                    "B": "The embossed letters \"FF\" are positioned in the center of the pill.",
+                    "C": "The embossed letters \"FF\" are in red color.",
+                    "D": "The embossed letters \"FF\" are located on the side of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "Does the product have an imprint on its surface?",
-                "Answer": "A",
+                "Question": "What is an additional piece of information about the object?",
+                "Answer": "D",
                 "Options": {
-                    "A": "No, it is smooth.",
-                    "B": "Yes, with the imprint \"FF\".",
-                    "C": "Yes, with a logo.",
-                    "D": "Yes, with a numeric imprint."
+                    "A": "The pill is used for treating high blood pressure.",
+                    "B": "The speckled markings are considered defects.",
+                    "C": "The pill is made of plastic.",
+                    "D": "The speckled markings are intrinsic characteristics of the pill's design."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "A",
-                "Options": {
-                    "A": "A wing nut.",
-                    "B": "A screw.",
-                    "C": "A pill.",
-                    "D": "A button."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "What is the shape of the product?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Oval.",
-                    "B": "Square.",
-                    "C": "Hexagonal.",
-                    "D": "Round."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the color of the product?",
-                "Answer": "B",
-                "Options": {
-                    "A": "White with red speckles.",
-                    "B": "Silver.",
-                    "C": "Black.",
-                    "D": "Gold."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "Does the product have an imprint on its surface?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes, with the imprint \"FF\".",
-                    "B": "No, it is smooth.",
-                    "C": "Yes, with a numeric imprint.",
-                    "D": "Yes, with a logo."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/109.png",
             "MVTec-AD/pill/train/good/116.png",
@@ -90979,8 +90475,8 @@
             "MVTec-AD/pill/train/good/248.png"
         ]
     },
-    "DS-MVTec/pill/image/good/013.png": {
-        "image_path": "image/good/013.png",
+    "MVTec-AD/pill/test/good/013.png": {
+        "image_path": "MVTec-AD/pill/test/good/013.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -90994,114 +90490,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "A",
+                "Answer": "B",
                 "Options": {
-                    "A": "A metal gear.",
-                    "B": "A piece of modern art.",
-                    "C": "A whiteboard eraser.",
-                    "D": "An oval-shaped pill."
+                    "A": "A bottle of water.",
+                    "B": "An oval-shaped pill with embossed letters \"FF\".",
+                    "C": "A piece of jewelry.",
+                    "D": "A small electronic device."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located?",
+                "Question": "What are the subcomponents or elements of the object?",
                 "Answer": "C",
                 "Options": {
-                    "A": "On a white background.",
-                    "B": "In a natural outdoor setting.",
-                    "C": "On a black background.",
-                    "D": "Inside a machinery assembly."
+                    "A": "The pill has a square shape with no markings.",
+                    "B": "The pill has a smooth surface with no text.",
+                    "C": "The pill has speckled markings and embossed letters \"FF\" in the center.",
+                    "D": "The pill has a glossy finish with a logo on the side."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
-                "Answer": "A",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
+                "Answer": "C",
                 "Options": {
-                    "A": "It has a metallic sheen.",
-                    "B": "It is transparent.",
-                    "C": "It has red speckles.",
-                    "D": "It is multicolored."
+                    "A": "The embossed letters \"FF\" are located at the bottom of the pill.",
+                    "B": "The speckled markings are concentrated on one side of the pill.",
+                    "C": "The embossed letters \"FF\" are positioned in the center of the pill.",
+                    "D": "The pill has a hole in the middle."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "B",
+                "Question": "What is an additional piece of information about the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "It is used as a medication.",
-                    "B": "It appears to have a uniform manufacturing quality.",
-                    "C": "It is a soft and chewable item.",
-                    "D": "It contains the embossing \"FF\"."
+                    "A": "The pill is designed to dissolve quickly in water.",
+                    "B": "The pill is used for treating a specific medical condition.",
+                    "C": "The speckled markings are intrinsic characteristics of the pill's design and not defects.",
+                    "D": "The pill changes color when exposed to light."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "B",
-                "Options": {
-                    "A": "An oval-shaped pill.",
-                    "B": "A metal gear.",
-                    "C": "A whiteboard eraser.",
-                    "D": "A piece of modern art."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "Where is the object located?",
-                "Answer": "C",
-                "Options": {
-                    "A": "On a white background.",
-                    "B": "In a natural outdoor setting.",
-                    "C": "On a black background.",
-                    "D": "Inside a machinery assembly."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
-                "Options": {
-                    "A": "It has red speckles.",
-                    "B": "It is transparent.",
-                    "C": "It is multicolored.",
-                    "D": "It has a metallic sheen."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "It is used as a medication.",
-                    "B": "It contains the embossing \"FF\".",
-                    "C": "It appears to have a uniform manufacturing quality.",
-                    "D": "It is a soft and chewable item."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/114.png",
             "MVTec-AD/pill/train/good/103.png",
@@ -91123,8 +90559,8 @@
             "MVTec-AD/pill/train/good/243.png"
         ]
     },
-    "DS-MVTec/pill/image/good/014.png": {
-        "image_path": "image/good/014.png",
+    "MVTec-AD/pill/test/good/014.png": {
+        "image_path": "MVTec-AD/pill/test/good/014.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -91138,114 +90574,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "A",
+                "Answer": "B",
                 "Options": {
-                    "A": "A metal gear.",
-                    "B": "A piece of modern art.",
-                    "C": "An oval-shaped pill.",
-                    "D": "A whiteboard eraser."
+                    "A": "A bottle of medicine.",
+                    "B": "An oval-shaped white pill.",
+                    "C": "A candy.",
+                    "D": "A piece of jewelry."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located?",
-                "Answer": "D",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Inside a machinery assembly.",
-                    "B": "In a natural outdoor setting.",
-                    "C": "On a white background.",
-                    "D": "On a black background."
+                    "A": "The pill has a square shape.",
+                    "B": "The pill has embossed letters \"FF.\"",
+                    "C": "The pill is blue in color.",
+                    "D": "The pill has a smooth surface without any speckles."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
-                "Answer": "C",
+                "Question": "What is a specific characteristic of the embossed letters on the pill?",
+                "Answer": "B",
                 "Options": {
-                    "A": "It is transparent.",
-                    "B": "It has red speckles.",
-                    "C": "It has a metallic sheen.",
-                    "D": "It is multicolored."
+                    "A": "The letters are embossed as \"GG.\"",
+                    "B": "The letters are embossed as \"FF\" and are clear.",
+                    "C": "The letters are embossed as \"FF\" but are blurry.",
+                    "D": "The letters are embossed as \"HH.\""
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be provided about the object?",
+                "Question": "What is the purpose of the pill based on its characteristics?",
                 "Answer": "B",
                 "Options": {
-                    "A": "It contains the embossing \"FF\".",
-                    "B": "It appears to have a uniform manufacturing quality.",
-                    "C": "It is used as a medication.",
-                    "D": "It is a soft and chewable item."
+                    "A": "The pill is used for decoration.",
+                    "B": "The pill is used for medical treatment.",
+                    "C": "The pill is used as a toy.",
+                    "D": "The pill is used as a food supplement."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "B",
-                "Options": {
-                    "A": "An oval-shaped pill.",
-                    "B": "A metal gear.",
-                    "C": "A whiteboard eraser.",
-                    "D": "A piece of modern art."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "Where is the object located?",
-                "Answer": "C",
-                "Options": {
-                    "A": "On a white background.",
-                    "B": "In a natural outdoor setting.",
-                    "C": "On a black background.",
-                    "D": "Inside a machinery assembly."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
-                "Options": {
-                    "A": "It has red speckles.",
-                    "B": "It is transparent.",
-                    "C": "It is multicolored.",
-                    "D": "It has a metallic sheen."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "It is used as a medication.",
-                    "B": "It contains the embossing \"FF\".",
-                    "C": "It appears to have a uniform manufacturing quality.",
-                    "D": "It is a soft and chewable item."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/103.png",
             "MVTec-AD/pill/train/good/109.png",
@@ -91267,8 +90643,8 @@
             "MVTec-AD/pill/train/good/206.png"
         ]
     },
-    "DS-MVTec/pill/image/good/015.png": {
-        "image_path": "image/good/015.png",
+    "MVTec-AD/pill/test/good/015.png": {
+        "image_path": "MVTec-AD/pill/test/good/015.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -91284,112 +90660,52 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "A coin.",
-                    "B": "A nut for a bolt.",
-                    "C": "A pill.",
-                    "D": "A button."
+                    "A": "A circular coin.",
+                    "B": "An oval-shaped pill.",
+                    "C": "A square tile.",
+                    "D": "A triangular badge."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the shape of the object?",
-                "Answer": "C",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Triangular.",
-                    "B": "Square.",
-                    "C": "Hexagonal.",
-                    "D": "Circular."
+                    "A": "The pill has a square shape with a smooth surface.",
+                    "B": "The pill has an oval shape with embossed letters \"FF\" at the center.",
+                    "C": "The pill has a triangular shape with a glossy finish.",
+                    "D": "The pill has a rectangular shape with a matte texture."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
-                "Answer": "D",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Green.",
-                    "B": "Red.",
-                    "C": "Blue.",
-                    "D": "Silver."
+                    "A": "The embossed letters \"FF\" are located at the bottom of the pill.",
+                    "B": "The embossed letters \"FF\" are located at the center of the pill.",
+                    "C": "The embossed letters \"FF\" are located at the top of the pill.",
+                    "D": "The embossed letters \"FF\" are located on the side of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What is the object primarily used for?",
+                "Question": "What is an additional piece of information about the object?",
                 "Answer": "A",
                 "Options": {
-                    "A": "Fastening components.",
-                    "B": "Holding papers.",
-                    "C": "Decoration.",
-                    "D": "Sealing bottles."
+                    "A": "The pill is designed to dissolve quickly in water.",
+                    "B": "The pill is used for decorative purposes.",
+                    "C": "The pill is made of metal and is magnetic.",
+                    "D": "The pill is a type of candy with a sweet flavor."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "A",
-                "Options": {
-                    "A": "A nut for a bolt.",
-                    "B": "A button.",
-                    "C": "A coin.",
-                    "D": "A pill."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "What is the shape of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Square.",
-                    "B": "Circular.",
-                    "C": "Hexagonal.",
-                    "D": "Triangular."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Red.",
-                    "B": "Blue.",
-                    "C": "Silver.",
-                    "D": "Green."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the object primarily used for?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Decoration.",
-                    "B": "Sealing bottles.",
-                    "C": "Fastening components.",
-                    "D": "Holding papers."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/111.png",
             "MVTec-AD/pill/train/good/104.png",
@@ -91411,8 +90727,8 @@
             "MVTec-AD/pill/train/good/266.png"
         ]
     },
-    "DS-MVTec/pill/image/good/016.png": {
-        "image_path": "image/good/016.png",
+    "MVTec-AD/pill/test/good/016.png": {
+        "image_path": "MVTec-AD/pill/test/good/016.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -91428,112 +90744,52 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "A coin.",
-                    "B": "A mechanical gear.",
-                    "C": "An oval-shaped pill.",
-                    "D": "A camera lens."
+                    "A": "A circular coin.",
+                    "B": "An oval-shaped pill.",
+                    "C": "A square tile.",
+                    "D": "A triangular badge."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located in the image?",
-                "Answer": "D",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Against a white background.",
-                    "B": "On a patterned surface.",
-                    "C": "In a natural outdoor setting.",
-                    "D": "Against a solid black background."
+                    "A": "The pill has a blue base color.",
+                    "B": "The pill has an imprint of the letters \"FF\" in the center.",
+                    "C": "The pill has a green border.",
+                    "D": "The pill has a star-shaped pattern."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
+                "Question": "What is a specific characteristic of the subcomponent mentioned in the previous question?",
+                "Answer": "B",
                 "Options": {
-                    "A": "The object appears to have a solid, uniform color.",
-                    "B": "The object is circular with a smooth, reflective surface.",
-                    "C": "The object is square-shaped with multicolored stripes.",
-                    "D": "The object has an irregular shape with a textured finish."
+                    "A": "The letters \"FF\" are in the bottom left corner.",
+                    "B": "The letters \"FF\" are in the center of the pill.",
+                    "C": "The letters \"FF\" are in red color.",
+                    "D": "The letters \"FF\" are in a circular shape."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "A",
+                "Question": "What is an additional piece of information about the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "The object has letters engraved or embossed on its surface.",
-                    "B": "The object is glowing in the dark.",
-                    "C": "There is a number sequence printed on the object.",
-                    "D": "The object has intricate designs painted on it."
+                    "A": "The pill is designed to be used as a decorative item.",
+                    "B": "The red speckles on the pill are considered defects.",
+                    "C": "The pill is intended for medical use and the red speckles are part of its design.",
+                    "D": "The pill changes color when exposed to light."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "A",
-                "Options": {
-                    "A": "A mechanical gear.",
-                    "B": "A camera lens.",
-                    "C": "An oval-shaped pill.",
-                    "D": "A coin."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "Where is the object located in the image?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Against a white background.",
-                    "B": "Against a solid black background.",
-                    "C": "In a natural outdoor setting.",
-                    "D": "On a patterned surface."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "The object is square-shaped with multicolored stripes.",
-                    "B": "The object is circular with a smooth, reflective surface.",
-                    "C": "The object has an irregular shape with a textured finish.",
-                    "D": "The object appears to have a solid, uniform color."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "The object has intricate designs painted on it.",
-                    "B": "There is a number sequence printed on the object.",
-                    "C": "The object has letters engraved or embossed on its surface.",
-                    "D": "The object is glowing in the dark."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/106.png",
             "MVTec-AD/pill/train/good/084.png",
@@ -91555,8 +90811,8 @@
             "MVTec-AD/pill/train/good/246.png"
         ]
     },
-    "DS-MVTec/pill/image/good/017.png": {
-        "image_path": "image/good/017.png",
+    "MVTec-AD/pill/test/good/017.png": {
+        "image_path": "MVTec-AD/pill/test/good/017.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -91570,114 +90826,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "C",
+                "Answer": "B",
                 "Options": {
-                    "A": "A bolt.",
-                    "B": "A pill.",
-                    "C": "A gear.",
-                    "D": "A washer."
+                    "A": "A candy.",
+                    "B": "An oval-shaped pill with embossed letters.",
+                    "C": "A button.",
+                    "D": "A coin."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the primary shape of the object?",
-                "Answer": "B",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "Triangular.",
-                    "B": "Circular.",
-                    "C": "Oval.",
-                    "D": "Square."
+                    "A": "The pill has a square shape with no markings.",
+                    "B": "The pill has a circular shape with a smooth surface.",
+                    "C": "The pill has an oval shape with the letters \"FF\" embossed on one side and small red speckles.",
+                    "D": "The pill has a triangular shape with a glossy finish."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object's surface?",
-                "Answer": "C",
+                "Question": "What is a specific characteristic of the embossed letters on the pill?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Engraved with letters.",
-                    "B": "Shiny with ridges.",
-                    "C": "Smooth with speckles.",
-                    "D": "Rough with scratches."
+                    "A": "The letters are in the shape of a heart.",
+                    "B": "The letters \"FF\" are embossed on one side of the pill.",
+                    "C": "The letters are written in cursive.",
+                    "D": "The letters are located on the back of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
-                "Answer": "D",
+                "Question": "What is the purpose of the pill's design features?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Reddish-brown.",
-                    "B": "White with speckles.",
-                    "C": "Black.",
-                    "D": "Greenish-blue."
+                    "A": "To make the pill heavier.",
+                    "B": "The embossed letters and speckles are likely for brand identification and to indicate the pill's type or medication.",
+                    "C": "To make the pill more difficult to swallow.",
+                    "D": "The design features are purely decorative with no functional purpose."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "C",
-                "Options": {
-                    "A": "A bolt.",
-                    "B": "A pill.",
-                    "C": "A gear.",
-                    "D": "A washer."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "What is the primary shape of the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Square.",
-                    "B": "Circular.",
-                    "C": "Oval.",
-                    "D": "Triangular."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object's surface?",
-                "Answer": "A",
-                "Options": {
-                    "A": "Smooth with speckles.",
-                    "B": "Engraved with letters.",
-                    "C": "Rough with scratches.",
-                    "D": "Shiny with ridges."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Reddish-brown.",
-                    "B": "White with speckles.",
-                    "C": "Greenish-blue.",
-                    "D": "Black."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/103.png",
             "MVTec-AD/pill/train/good/102.png",
@@ -91699,8 +90895,8 @@
             "MVTec-AD/pill/train/good/240.png"
         ]
     },
-    "DS-MVTec/pill/image/good/018.png": {
-        "image_path": "image/good/018.png",
+    "MVTec-AD/pill/test/good/018.png": {
+        "image_path": "MVTec-AD/pill/test/good/018.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -91716,46 +90912,46 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "A washer.",
-                    "B": "A gear.",
-                    "C": "A bolt.",
-                    "D": "A pill."
+                    "A": "A bottle of medicine.",
+                    "B": "An oval-shaped pill with \"FF\" imprinted.",
+                    "C": "A piece of candy.",
+                    "D": "A small electronic device."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the primary shape of the object?",
-                "Answer": "A",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Circular.",
-                    "B": "Oval.",
-                    "C": "Square.",
-                    "D": "Triangular."
+                    "A": "The pill has a square shape with no imprints.",
+                    "B": "The pill has a white background with scattered reddish-brown speckles and \"FF\" imprinted in the center.",
+                    "C": "The pill has a blue background with green speckles.",
+                    "D": "The pill has a triangular shape with a logo."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object's surface?",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Rough with scratches.",
-                    "B": "Smooth with speckles.",
-                    "C": "Shiny with ridges.",
-                    "D": "Engraved with letters."
+                    "A": "The \"FF\" imprint is located at the bottom of the pill.",
+                    "B": "The reddish-brown speckles are uniformly distributed across the surface.",
+                    "C": "The \"FF\" imprint is located on the side of the pill.",
+                    "D": "The speckles are concentrated at the edges of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
-                "Answer": "D",
+                "Question": "What is an additional piece of information about the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "White with speckles.",
-                    "B": "Black.",
-                    "C": "Reddish-brown.",
-                    "D": "Greenish-blue."
+                    "A": "The pill is designed to dissolve quickly in water.",
+                    "B": "The pill is used for treating a specific medical condition.",
+                    "C": "The consistent imprint and speckle pattern indicate the pill is normal and without defects.",
+                    "D": "The pill is made from a special type of plastic."
                 },
                 "type": "Object Analysis",
                 "annotation": true
@@ -91783,8 +90979,8 @@
             "MVTec-AD/pill/train/good/182.png"
         ]
     },
-    "DS-MVTec/pill/image/good/019.png": {
-        "image_path": "image/good/019.png",
+    "MVTec-AD/pill/test/good/019.png": {
+        "image_path": "MVTec-AD/pill/test/good/019.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -91800,46 +90996,46 @@
                 "Question": "What kind of product is in the image?",
                 "Answer": "B",
                 "Options": {
-                    "A": "A pill.",
-                    "B": "A bolt.",
-                    "C": "A toy.",
-                    "D": "A button."
+                    "A": "A bottle of water.",
+                    "B": "An oval-shaped pill.",
+                    "C": "A piece of candy.",
+                    "D": "A small coin."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Which color predominantly describes the object?",
-                "Answer": "A",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Silver.",
-                    "B": "Red.",
-                    "C": "Gold.",
-                    "D": "Black."
+                    "A": "The pill has a square shape and a rough texture.",
+                    "B": "The pill has a smooth texture and raised characters 'FF'.",
+                    "C": "The pill has a metallic surface and a blue color.",
+                    "D": "The pill has a hollow center and a green tint."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
+                "Question": "What is a specific characteristic of the raised characters on the pill?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Rough and circular.",
-                    "B": "Smooth and irregularly shaped.",
-                    "C": "Textured and square.",
-                    "D": "Smooth and spherical."
+                    "A": "The characters are illegible and faded.",
+                    "B": "The characters are clearly legible and well-defined.",
+                    "C": "The characters are in a different language.",
+                    "D": "The characters are sunken into the pill's surface."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "Does the object have any characters or text imprinted on it?",
-                "Answer": "A",
+                "Question": "What is an additional piece of information about the pill?",
+                "Answer": "C",
                 "Options": {
-                    "A": "No, it's plain.",
-                    "B": "No, but it has numbers.",
-                    "C": "Yes, it says 'FF'.",
-                    "D": "Yes, it says 'RX'."
+                    "A": "The pill is designed to dissolve quickly in water.",
+                    "B": "The pill is used for treating a specific medical condition.",
+                    "C": "The pill's speckles are part of its design and are consistent with normal pills.",
+                    "D": "The pill changes color when exposed to light."
                 },
                 "type": "Object Analysis",
                 "annotation": true
@@ -91867,8 +91063,8 @@
             "MVTec-AD/pill/train/good/249.png"
         ]
     },
-    "DS-MVTec/pill/image/good/020.png": {
-        "image_path": "image/good/020.png",
+    "MVTec-AD/pill/test/good/020.png": {
+        "image_path": "MVTec-AD/pill/test/good/020.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -91882,48 +91078,48 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "D",
+                "Answer": "B",
                 "Options": {
-                    "A": "A coin.",
+                    "A": "A circular coin.",
                     "B": "An oval-shaped pill.",
-                    "C": "A camera lens.",
-                    "D": "A mechanical gear."
+                    "C": "A square tile.",
+                    "D": "A triangular badge."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "Where is the object located in the image?",
-                "Answer": "D",
+                "Question": "What are the subcomponents or elements of the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "In a natural outdoor setting.",
-                    "B": "Against a white background.",
-                    "C": "On a patterned surface.",
-                    "D": "Against a solid black background."
+                    "A": "The pill has a square shape with a smooth texture.",
+                    "B": "The pill has a circular shape with a rough texture.",
+                    "C": "The pill has an oval shape with reddish-brown speckles and the letters \"F F\" engraved in the center.",
+                    "D": "The pill has a triangular shape with a glossy finish."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object?",
-                "Answer": "D",
+                "Question": "What is the relative position or characteristic of a specific subcomponent?",
+                "Answer": "C",
                 "Options": {
-                    "A": "The object appears to have a solid, uniform color.",
-                    "B": "The object is circular with a smooth, reflective surface.",
-                    "C": "The object is square-shaped with multicolored stripes.",
-                    "D": "The object has an irregular shape with a textured finish."
+                    "A": "The letters \"F F\" are engraved on the bottom left corner.",
+                    "B": "The reddish-brown speckles are concentrated in the middle.",
+                    "C": "The letters \"F F\" are engraved in the center of the pill.",
+                    "D": "The speckles are only present on the edges of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What additional information can be provided about the object?",
-                "Answer": "A",
+                "Question": "What is an additional piece of information about the object?",
+                "Answer": "C",
                 "Options": {
-                    "A": "The object has letters engraved or embossed on its surface.",
-                    "B": "The object has intricate designs painted on it.",
-                    "C": "There is a number sequence printed on the object.",
-                    "D": "The object is glowing in the dark."
+                    "A": "The pill is designed to dissolve quickly in water.",
+                    "B": "The pill is made of a material that changes color when exposed to light.",
+                    "C": "The pill adheres to the expected characteristics without any visible defects.",
+                    "D": "The pill is intended to be used as a decorative item."
                 },
                 "type": "Object Analysis",
                 "annotation": true
@@ -91951,8 +91147,8 @@
             "MVTec-AD/pill/train/good/254.png"
         ]
     },
-    "DS-MVTec/pill/image/good/021.png": {
-        "image_path": "image/good/021.png",
+    "MVTec-AD/pill/test/good/021.png": {
+        "image_path": "MVTec-AD/pill/test/good/021.png",
         "conversation": [
             {
                 "Question": "Is there any defect in the object?",
@@ -91966,114 +91162,54 @@
             },
             {
                 "Question": "What kind of product is in the image?",
-                "Answer": "A",
+                "Answer": "B",
                 "Options": {
-                    "A": "A gear.",
-                    "B": "A pill.",
-                    "C": "A bolt.",
-                    "D": "A washer."
+                    "A": "A circular coin.",
+                    "B": "An oval-shaped pill.",
+                    "C": "A square tile.",
+                    "D": "A triangular badge."
                 },
                 "type": "Object Classification",
                 "annotation": true
             },
             {
-                "Question": "What is the primary shape of the object?",
-                "Answer": "D",
+                "Question": "There is no defect in the object. What are the subcomponents of the pill?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Triangular.",
-                    "B": "Oval.",
-                    "C": "Square.",
-                    "D": "Circular."
+                    "A": "The pill has a rectangular shape with \"FF\" embossed.",
+                    "B": "The pill has an oval shape with \"FF\" embossed and red speckles.",
+                    "C": "The pill has a triangular shape with \"FF\" embossed.",
+                    "D": "The pill has a circular shape with \"FF\" embossed."
                 },
                 "type": "Object Structure",
                 "annotation": true
             },
             {
-                "Question": "What is the appearance of the object's surface?",
-                "Answer": "A",
+                "Question": "There is no defect in the object. What is the relative position of the embossed letters \"FF\"?",
+                "Answer": "B",
                 "Options": {
-                    "A": "Smooth with speckles.",
-                    "B": "Rough with scratches.",
-                    "C": "Shiny with ridges.",
-                    "D": "Engraved with letters."
+                    "A": "The letters \"FF\" are embossed on the left side of the pill.",
+                    "B": "The letters \"FF\" are embossed in the center of the pill.",
+                    "C": "The letters \"FF\" are embossed on the right side of the pill.",
+                    "D": "The letters \"FF\" are embossed at the bottom of the pill."
                 },
                 "type": "Object Details",
                 "annotation": true
             },
             {
-                "Question": "What is the color of the object?",
-                "Answer": "D",
+                "Question": "There is no defect in the object. What is the purpose of the red speckles on the pill?",
+                "Answer": "C",
                 "Options": {
-                    "A": "White with speckles.",
-                    "B": "Black.",
-                    "C": "Reddish-brown.",
-                    "D": "Greenish-blue."
+                    "A": "To make the pill taste better.",
+                    "B": "To indicate the pill's expiration date.",
+                    "C": "To enhance the pill's visual identification and design.",
+                    "D": "To make the pill heavier."
                 },
                 "type": "Object Analysis",
                 "annotation": true
             }
         ],
         "mask_path": null,
-        "annotated_conversation": [
-            {
-                "Question": "Is there any defect in the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Yes.",
-                    "B": "No."
-                },
-                "type": "Anomaly Detection",
-                "annotation": true
-            },
-            {
-                "Question": "What kind of product is in the image?",
-                "Answer": "C",
-                "Options": {
-                    "A": "A bolt.",
-                    "B": "A pill.",
-                    "C": "A gear.",
-                    "D": "A washer."
-                },
-                "type": "Object Classification",
-                "annotation": true
-            },
-            {
-                "Question": "What is the primary shape of the object?",
-                "Answer": "B",
-                "Options": {
-                    "A": "Square.",
-                    "B": "Circular.",
-                    "C": "Oval.",
-                    "D": "Triangular."
-                },
-                "type": "Object Structure",
-                "annotation": true
-            },
-            {
-                "Question": "What is the appearance of the object's surface?",
-                "Answer": "A",
-                "Options": {
-                    "A": "Smooth with speckles.",
-                    "B": "Engraved with letters.",
-                    "C": "Rough with scratches.",
-                    "D": "Shiny with ridges."
-                },
-                "type": "Object Details",
-                "annotation": true
-            },
-            {
-                "Question": "What is the color of the object?",
-                "Answer": "C",
-                "Options": {
-                    "A": "Reddish-brown.",
-                    "B": "White with speckles.",
-                    "C": "Greenish-blue.",
-                    "D": "Black."
-                },
-                "type": "Object Analysis",
-                "annotation": true
-            }
-        ],
         "similar_templates": [
             "MVTec-AD/pill/train/good/103.png",
             "MVTec-AD/pill/train/good/091.png",
@@ -701291,7 +700427,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/001_004.jpg",
+        "mask_path": "ground_truth/deformation/001_004.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/002_001.jpg",
             "GoodsAD/food_box/train/good/004_001.jpg",
@@ -701375,7 +700511,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/002_007.jpg",
+        "mask_path": "ground_truth/deformation/002_007.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/002_002.jpg",
             "GoodsAD/food_box/train/good/002_003.jpg",
@@ -701459,7 +700595,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/002_008.jpg",
+        "mask_path": "ground_truth/deformation/002_008.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/009_005.jpg",
             "GoodsAD/food_box/train/good/009_002.jpg",
@@ -701531,7 +700667,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/003_007.jpg",
+        "mask_path": "ground_truth/deformation/003_007.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/003_001.jpg",
             "GoodsAD/food_box/train/good/003_003.jpg",
@@ -701603,7 +700739,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/003_008.jpg",
+        "mask_path": "ground_truth/deformation/003_008.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/004_003.jpg",
             "GoodsAD/food_box/train/good/023_004.jpg",
@@ -701687,7 +700823,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/004_012.jpg",
+        "mask_path": "ground_truth/deformation/004_012.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/004_002.jpg",
             "GoodsAD/food_box/train/good/012_004.jpg",
@@ -701771,7 +700907,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/004_013.jpg",
+        "mask_path": "ground_truth/deformation/004_013.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/004_005.jpg",
             "GoodsAD/food_box/train/good/004_003.jpg",
@@ -701843,7 +700979,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/006_008.jpg",
+        "mask_path": "ground_truth/deformation/006_008.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/006_001.jpg",
             "GoodsAD/food_box/train/good/011_004.jpg",
@@ -701927,7 +701063,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/007_008.jpg",
+        "mask_path": "ground_truth/deformation/007_008.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/013_004.jpg",
             "GoodsAD/food_box/train/good/013_003.jpg",
@@ -702011,7 +701147,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/008_013.jpg",
+        "mask_path": "ground_truth/deformation/008_013.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/015_007.jpg",
             "GoodsAD/food_box/train/good/004_005.jpg",
@@ -702095,7 +701231,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/009_011.jpg",
+        "mask_path": "ground_truth/deformation/009_011.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/011_004.jpg",
             "GoodsAD/food_box/train/good/019_003.jpg",
@@ -702179,7 +701315,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/009_012.jpg",
+        "mask_path": "ground_truth/deformation/009_012.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/009_004.jpg",
             "GoodsAD/food_box/train/good/024_003.jpg",
@@ -702263,7 +701399,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/015_018.jpg",
+        "mask_path": "ground_truth/deformation/015_018.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/016_004.jpg",
             "GoodsAD/food_box/train/good/015_011.jpg",
@@ -702347,7 +701483,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/015_019.jpg",
+        "mask_path": "ground_truth/deformation/015_019.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/015_004.jpg",
             "GoodsAD/food_box/train/good/015_007.jpg",
@@ -702431,7 +701567,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/016_008.jpg",
+        "mask_path": "ground_truth/deformation/016_008.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/016_003.jpg",
             "GoodsAD/food_box/train/good/016_005.jpg",
@@ -702515,7 +701651,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/016_009.jpg",
+        "mask_path": "ground_truth/deformation/016_009.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/016_003.jpg",
             "GoodsAD/food_box/train/good/012_009.jpg",
@@ -702599,7 +701735,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/018_015.jpg",
+        "mask_path": "ground_truth/deformation/018_015.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/018_008.jpg",
             "GoodsAD/food_box/train/good/018_006.jpg",
@@ -702683,7 +701819,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/018_016.jpg",
+        "mask_path": "ground_truth/deformation/018_016.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/018_009.jpg",
             "GoodsAD/food_box/train/good/018_002.jpg",
@@ -702767,7 +701903,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/019_016.jpg",
+        "mask_path": "ground_truth/deformation/019_016.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/019_002.jpg",
             "GoodsAD/food_box/train/good/019_003.jpg",
@@ -702839,7 +701975,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/019_017.jpg",
+        "mask_path": "ground_truth/deformation/019_017.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/019_013.jpg",
             "GoodsAD/food_box/train/good/019_007.jpg",
@@ -702923,7 +702059,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/020_013.jpg",
+        "mask_path": "ground_truth/deformation/020_013.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/020_001.jpg",
             "GoodsAD/food_box/train/good/022_004.jpg",
@@ -703007,7 +702143,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/022_011.jpg",
+        "mask_path": "ground_truth/deformation/022_011.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/022_001.jpg",
             "GoodsAD/food_box/train/good/022_004.jpg",
@@ -703091,7 +702227,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/023_007.jpg",
+        "mask_path": "ground_truth/deformation/023_007.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/023_002.jpg",
             "GoodsAD/food_box/train/good/024_004.jpg",
@@ -703175,7 +702311,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/024_011.jpg",
+        "mask_path": "ground_truth/deformation/024_011.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/024_003.jpg",
             "GoodsAD/food_box/train/good/024_008.jpg",
@@ -703259,7 +702395,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/026_010.jpg",
+        "mask_path": "ground_truth/deformation/026_010.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/027_003.jpg",
             "GoodsAD/food_box/train/good/012_004.jpg",
@@ -703343,7 +702479,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/026_011.jpg",
+        "mask_path": "ground_truth/deformation/026_011.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/027_003.jpg",
             "GoodsAD/food_box/train/good/014_005.jpg",
@@ -703427,7 +702563,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/026_012.jpg",
+        "mask_path": "ground_truth/deformation/026_012.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/026_004.jpg",
             "GoodsAD/food_box/train/good/024_006.jpg",
@@ -703511,7 +702647,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/027_007.jpg",
+        "mask_path": "ground_truth/deformation/027_007.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/028_003.jpg",
             "GoodsAD/food_box/train/good/026_001.jpg",
@@ -703583,7 +702719,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/027_008.jpg",
+        "mask_path": "ground_truth/deformation/027_008.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/026_003.jpg",
             "GoodsAD/food_box/train/good/012_005.jpg",
@@ -703667,7 +702803,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/027_009.jpg",
+        "mask_path": "ground_truth/deformation/027_009.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/028_003.jpg",
             "GoodsAD/food_box/train/good/015_005.jpg",
@@ -703739,7 +702875,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/028_006.jpg",
+        "mask_path": "ground_truth/deformation/028_006.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/028_004.jpg",
             "GoodsAD/food_box/train/good/019_001.jpg",
@@ -703823,7 +702959,7 @@
                 "annotation": true
             }
         ],
-        "mask_path": "ground_truth/deformation/028_007.jpg",
+        "mask_path": "ground_truth/deformation/028_007.png",
         "similar_templates": [
             "GoodsAD/food_box/train/good/028_002.jpg",
             "GoodsAD/food_box/train/good/028_005.jpg",
