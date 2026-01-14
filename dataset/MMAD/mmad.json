@@ -1261,10 +1261,10 @@
                 "annotation": true
             },
             {
-                "Question": "There is a defect in the object. Where is the defect?",
+                "Question": "There is a defect in the object. Where is the center of the defect?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Around the edges.",
+                    "A": "On the left side.",
                     "B": "Around the center.",
                     "C": "On the side.",
                     "D": "At the bottom."
@@ -133802,7 +133802,7 @@
                 "Options": {
                     "A": "Color mismatch.",
                     "B": "Missing part.",
-                    "C": "Misalignment.",
+                    "C": "Misplacement.",
                     "D": "Cracked body."
                 },
                 "type": "Defect Classification",
@@ -133813,7 +133813,7 @@
                 "Answer": "B",
                 "Options": {
                     "A": "On the background pattern.",
-                    "B": "Lower central part of the transistor.",
+                    "B": "On the left side of correct position",
                     "C": "On the metallic legs.",
                     "D": "Top left corner of the transistor."
                 },
@@ -133827,14 +133827,14 @@
                     "A": "Scratches on the transistor surface.",
                     "B": "Bent body of the transistor.",
                     "C": "Twisted metal leg.",
-                    "D": "Deviation of the central leg to the left."
+                    "D": "Deviation to the left."
                 },
                 "type": "Defect Description",
                 "annotation": true
             },
             {
                 "Question": "There is a defect in the object. What is the potential effect of the defect?",
-                "Answer": "A",
+                "Answer": "D",
                 "Options": {
                     "A": "Disrupts the expected symmetry and functionality.",
                     "B": "Changes the color of the transistor.",
@@ -133899,7 +133899,7 @@
                     "A": "On the right leg.",
                     "B": "On the left leg.",
                     "C": "On the background pattern.",
-                    "D": "On the middle leg."
+                    "D": "On the whole body."
                 },
                 "type": "Defect Localization",
                 "annotation": true
@@ -133909,9 +133909,9 @@
                 "Answer": "D",
                 "Options": {
                     "A": "The leg is shorter than normal.",
-                    "B": "The leg has a surface scratch.",
+                    "B": "The body has a surface scratch.",
                     "C": "The leg is bent.",
-                    "D": "The leg is deviating to the side."
+                    "D": "The body is deviating to the side."
                 },
                 "type": "Defect Description",
                 "annotation": true
@@ -133983,7 +133983,7 @@
                     "A": "Around the perimeter of the object.",
                     "B": "On the edge of the object.",
                     "C": "In the central area of the object.",
-                    "D": "On the surface of the object."
+                    "D": "On the surface of the package."
                 },
                 "type": "Defect Localization",
                 "annotation": true
@@ -134163,7 +134163,7 @@
                     "A": "The object is cracked.",
                     "B": "The object is discolored.",
                     "C": "The legs are bent.",
-                    "D": "The legs are not equidistant from each other."
+                    "D": "The object is inverted."
                 },
                 "type": "Defect Description",
                 "annotation": true
@@ -134175,7 +134175,7 @@
                     "A": "The object will change color.",
                     "B": "It may result in operational failures or installation issues.",
                     "C": "The object will light up in the dark.",
-                    "D": "It will improve the object’s performance."
+                    "D": "It will deteriorate the object’s performance."
                 },
                 "type": "Defect Analysis",
                 "annotation": true
@@ -134232,10 +134232,10 @@
                 "Question": "There is a defect in the object. Where is the defect?",
                 "Answer": "B",
                 "Options": {
-                    "A": "Directly in the center of the designated space.",
-                    "B": "Slightly to the left of the designated space.",
+                    "A": "On the pins.",
+                    "B": "On the transistor placement.",
                     "C": "Completely outside of the designated space.",
-                    "D": "To the right of the designated space."
+                    "D": "On the upper area of the circuit board."
                 },
                 "type": "Defect Localization",
                 "annotation": true
@@ -134245,7 +134245,7 @@
                 "Answer": "B",
                 "Options": {
                     "A": "The transistor is upside down.",
-                    "B": "The transistor is shifted slightly to the left.",
+                    "B": "The transistor is rotated to the left.",
                     "C": "The transistor has an extra leg.",
                     "D": "The transistor has a scratch on it."
                 },
@@ -134257,9 +134257,9 @@
                 "Answer": "C",
                 "Options": {
                     "A": "It will change the color of the transistor.",
-                    "B": "It will enhance the performance of the transistor.",
-                    "C": "It could potentially affect the functionality of the transistor.",
-                    "D": "It will make the transistor waterproof."
+                    "B": "It will affect the performance of the transistor.",
+                    "C": "It could potentially affect the base functionality of the transistor.",
+                    "D": "It will affect the transistor waterproof."
                 },
                 "type": "Defect Analysis",
                 "annotation": true
@@ -134304,7 +134304,7 @@
                 "Question": "There is a defect in the object. What is the type of the defect?",
                 "Answer": "A",
                 "Options": {
-                    "A": "Bent metal lead.",
+                    "A": "Misplaced object.",
                     "B": "Missing component.",
                     "C": "Cracked casing.",
                     "D": "Corroded surface."
@@ -134317,9 +134317,9 @@
                 "Answer": "B",
                 "Options": {
                     "A": "On the right lead.",
-                    "B": "On the central lead.",
+                    "B": "On the placement.",
                     "C": "On the left lead.",
-                    "D": "On the surface mount."
+                    "D": "On the package surface."
                 },
                 "type": "Defect Localization",
                 "annotation": true
@@ -134328,7 +134328,7 @@
                 "Question": "There is a defect in the object. What is the appearance of the defect?",
                 "Answer": "A",
                 "Options": {
-                    "A": "The metal lead is bent towards the right.",
+                    "A": "The transistor is misaligned at an angle.",
                     "B": "The metal lead is completely missing.",
                     "C": "The metal lead is shorter than usual.",
                     "D": "The metal lead is discolored."
@@ -134422,7 +134422,7 @@
             },
             {
                 "Question": "There is a defect in the object. What is the effect of the defect?",
-                "Answer": "D",
+                "Answer": "B",
                 "Options": {
                     "A": "It affects the color of the transistor.",
                     "B": "It prevents the transistor from fitting into the board.",
@@ -134485,7 +134485,7 @@
                 "Answer": "B",
                 "Options": {
                     "A": "On the cylindrical body.",
-                    "B": "On the two outer legs.",
+                    "B": "On the whole body.",
                     "C": "On the center leg.",
                     "D": "On the background."
                 },
@@ -134499,7 +134499,7 @@
                     "A": "Missing components.",
                     "B": "Faded color on the leads.",
                     "C": "Cracks on the body.",
-                    "D": "Legs are improperly bent outward."
+                    "D": "Rotated to the right."
                 },
                 "type": "Defect Description",
                 "annotation": true
@@ -134509,7 +134509,7 @@
                 "Answer": "A",
                 "Options": {
                     "A": "Affects functionality or installation.",
-                    "B": "Enhances the aesthetics.",
+                    "B": "Affects the aesthetics.",
                     "C": "Changes the resistance value.",
                     "D": "Improves the conductivity."
                 },
@@ -134557,7 +134557,7 @@
                 "Answer": "B",
                 "Options": {
                     "A": "Missing component.",
-                    "B": "Leg misalignment.",
+                    "B": "Misplacement.",
                     "C": "Color mismatch.",
                     "D": "Cracked casing."
                 },
@@ -134568,7 +134568,7 @@
                 "Question": "There is a defect in the object. Where is the defect?",
                 "Answer": "A",
                 "Options": {
-                    "A": "On the central leg.",
+                    "A": "On the device body.",
                     "B": "On the top side of the transistor.",
                     "C": "On the left leg.",
                     "D": "On the right leg."
@@ -134581,9 +134581,9 @@
                 "Answer": "B",
                 "Options": {
                     "A": "The leg is shorter than usual.",
-                    "B": "The leg is shifted towards the left.",
+                    "B": "The body is shifted towards the left.",
                     "C": "The leg is bent at an angle.",
-                    "D": "The leg is thicker than the others."
+                    "D": "The package is thicker than the others."
                 },
                 "type": "Defect Description",
                 "annotation": true
