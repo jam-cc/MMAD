@@ -89,3 +89,8 @@ After organizing the datasets, each folder should contain the category subfolder
 Question and answer annotations, `random_templates`, and the total of 8,366 query images are unchanged. Existing question corrections are retained. Results using the revised GoodsAD references may differ from earlier evaluations; record the dataset revision when reporting results.
 
 For an existing download, replace `mmad.json` with the current version. If you use a derived `metadata.csv`, regenerate it with `python generate_metadata.py` from this directory after updating the JSON. The source image archives do not need to be changed.
+
+
+## MMAD-BBox localization annotations
+
+[`mmad_bbox.json`](mmad_bbox.json) contains 5,076 queries with nonempty GT masks and 10,450 connected-region boxes. See [the evaluation guide](../../evaluation/MMAD_BBox/README.md) for coordinates, template selection, inference and BBox-Mask IoU scoring. [`mmad_bbox_meta.json`](mmad_bbox_meta.json) records the frozen source hash and construction rules. Normal-image false positives are outside this localization manifest.

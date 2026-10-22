@@ -1,0 +1,13 @@
+{
+  "samples_checked": 5076,
+  "gt_boxes_checked": 10450,
+  "mask_files_checked": 5329,
+  "independent_implementation": "OpenCV connectedComponentsWithStats(connectivity=8), versus SciPy builder",
+  "all_component_boxes_match": true,
+  "all_image_and_mask_dimensions_match": true,
+  "all_template_paths_exist_and_lists_preserved": true,
+  "all_source_mask_samples_retained": true,
+  "all_box_coordinates_in_bounds": true,
+  "bbox_json_sha256": "2c3c5f2777079729f8417638eb34805854ffa93f41f99f7be7e88745d1f8125d",
+  "categories": 38
+}
