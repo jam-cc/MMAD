@@ -1,0 +1,34 @@
+name: Stage verified MMAD-BBox release
+on:
+  push:
+    branches: [maintenance/mmad-bbox-release-20261022]
+    paths: [.github/workflows/mmad-bbox-release.yml]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install numpy pillow scipy
+      - name: Verify payload and run tests
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64, lzma, json, hashlib, subprocess
+          manifest = {'README.md': '0fe6b50ef5aef9915e03868d207bc3ad37cbcf6b0e623a4769d4cf6ea93fc395', 'dataset/MMAD/README.md': '3f7742336256538805ad835cbaf7e7244dd4e1e7443d56d7e1067da7297b8152', 'dataset/MMAD/mmad_bbox.json': '2c3c5f2777079729f8417638eb34805854ffa93f41f99f7be7e88745d1f8125d', 'dataset/MMAD/mmad_bbox_meta.json': 'cb8cbb7d04b3eb09c5eecfb5a9d0abff5711cad5b38328ef574014265586adbf', 'dataset/MMAD/mmad_bbox_validation.json': '45ec0ff2cef82a8ea7bf2f0abfcb3c7471fc21ec7f6ad7f781b046497327b935', 'evaluation/MMAD_BBox/README.md': 'e427db64c5ef27a087924ebe511f90f93c9b8aa7597c706423dc9fee176573e5', 'evaluation/MMAD_BBox/bbox_mask_iou.py': 'a4847cd8eaca0d2c2ef4a76bbe5c7b5bbe851becd9a83fcc65f0533e6caeed49', 'evaluation/MMAD_BBox/build_mmad_bbox.py': '58702f3ed9b0288ca0a6a2c5f6445b1d2ec82975dcd4fe95ed23c94799531d0a', 'evaluation/MMAD_BBox/eval_mmad_bbox.py': 'd9013f1aad3cccca1c841cc027d36c3c5d074abd76fd41261b60aa68d902e522', 'evaluation/MMAD_BBox/mmad_bbox_metric_parity.json': '84c55adbcfc142c685c88da30fc4f18c13ea32721c27c07017b5f6f1e5c4687e', 'evaluation/MMAD_BBox/run_mmad_bbox.py': '767bcbda53c625a6f805c79fef6e4f18b594b06b254910046733424e98da5a4d', 'evaluation/MMAD_BBox/test_build_mmad_bbox.py': '5171d7f64a289b15fda1662197cf3b345b517cb81f5e0885596d1234114c28cc', 'evaluation/MMAD_BBox/test_mmad_bbox_evaluation.py': '513ffe741dbf6fbeff7110cff36895465ae240161f6dab069dff843604ea5c4b'}
+          encoded = ''.join(p.read_text() for p in sorted(Path('.maintenance/mmad-bbox').glob('part*.b64')))
+          assert hashlib.sha256(encoded.encode()).hexdigest() == 'c699078633ef14e0e5143f41fba3f95c4f3d15f3ac010d8636830ed92b66e0a2'
+          files = json.loads(lzma.decompress(base64.b64decode(encoded)))
+          assert files.keys() == manifest.keys()
+          for name, content in files.items():
+              assert hashlib.sha256(content.encode()).hexdigest() == manifest[name], name
+              target = Path(name)
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_text(content)
+          subprocess.run(['python', '-m', 'unittest', 'discover', '-s', 'evaluation/MMAD_BBox', '-p', 'test_*.py'], check=True)
+          subprocess.run(['git', 'config', 'user.name', 'github-actions[bot]'], check=True)
+          subprocess.run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'], check=True)
+          subprocess.run(['git', 'add', '--', *manifest], check=True)
+          subprocess.run(['git', 'commit', '-m', 'Release MMAD-BBox annotations and evaluation tools'], check=True)
+          subprocess.run(['git', 'push', 'origin', 'HEAD:maintenance/mmad-bbox-release-20261022'], check=True)
