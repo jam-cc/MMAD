@@ -16,6 +16,7 @@
 - What are the key challenges in industrial anomaly detection for MLLMs?
 
 ## 📜 News
+- **[2026-10-22]** Corrected GoodsAD `similar_templates` to use normal training images of the same product ID, and corrected the remaining pill image reference from `DS-MVTec/pill/image/good/008.png` to `MVTec-AD/pill/test/good/008.png`. See the [dataset correction notes](dataset/MMAD/README.md#annotation-corrections-2026-10-22) before comparing evaluation results.
 - **[2026-01-14]** To facilitate evaluation, we plan to create a more streamlined version with fewer errors, and we welcome reviews and reports of any data issues.
 - **[2025-07-08]** We've added support for the Qwen2.5-VL series, which has raised the bar for open-source general-purpose models. 
 - **[2025-05-26]** Main experiment results are in ./all_results for detailed research.

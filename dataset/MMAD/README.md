@@ -79,3 +79,13 @@ Both the **DS-MVTec** and **MVTec-AD** datasets should be organized with the sam
 ```
 
 After organizing the datasets, each folder should contain the category subfolders. 
+
+## Annotation corrections (2026-10-22)
+
+- Updated `similar_templates` for all 2,968 GoodsAD query images to normal training images with the same category and product ID (the filename prefix before `_`). For example, `GoodsAD/food_package/test/surface_anomaly/091_006.jpg` now references `091_001.jpg` through `091_004.jpg` in `GoodsAD/food_package/train/good/`.
+- Templates are ordered by numeric filename and include all available matching normal training images. Counts vary from 1 to 26; 62 query images have only one matching reference. Evaluation code should use the available references when fewer than the requested number of shots exist.
+- Changed the remaining incorrect query key `DS-MVTec/pill/image/good/008.png` and its `image_path` to `MVTec-AD/pill/test/good/008.png`, consistent with the existing pill annotations. The DS-MVTec image is a metal nut.
+
+Question and answer annotations, `random_templates`, and the total of 8,366 query images are unchanged. Existing question corrections are retained. Results using the revised GoodsAD references may differ from earlier evaluations; record the dataset revision when reporting results.
+
+For an existing download, replace `mmad.json` with the current version. If you use a derived `metadata.csv`, regenerate it with `python generate_metadata.py` from this directory after updating the JSON. The source image archives do not need to be changed.
