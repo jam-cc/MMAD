@@ -1,0 +1,58 @@
+name: Apply validated MMAD annotation correction
+on:
+  push:
+    branches:
+      - maintenance/mmad-annotations-20261022
+    paths:
+      - .github/workflows/mmad-annotation-maintenance.yml
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Apply and verify the pinned annotation patch
+        shell: bash
+        run: |
+          python - <<'PY'
+          import gzip, hashlib, json, subprocess
+          from pathlib import Path
+          patch = gzip.decompress(Path(".github/mmad-maintenance/annotations.patch.gz").read_bytes())
+          assert hashlib.sha256(patch).hexdigest() == "58abbed648dfafa8eea0f724a9bdf683f0e0b72d161b0064276d4e1cff638e02"
+          p = Path("dataset/MMAD/mmad.json")
+          before = json.loads(p.read_text())
+          subprocess.run(["git", "apply", "--check", "-"], input=patch, check=True)
+          subprocess.run(["git", "apply", "-"], input=patch, check=True)
+          assert hashlib.sha256(p.read_bytes()).hexdigest() == "c219c6b0c8794c017519d398374b72522fe18649d0fbac1bc0c563501de08143"
+          after = json.loads(p.read_text())
+          old = "DS-MVTec/pill/image/good/008.png"
+          new = "MVTec-AD/pill/test/good/008.png"
+          assert before.keys() - after.keys() == {old}
+          assert after.keys() - before.keys() == {new}
+          assert len(before) == len(after) == 8366
+          count = 0
+          for key, value in before.items():
+              target = new if key == old else key
+              expected = json.loads(json.dumps(value))
+              if key.startswith("GoodsAD/"):
+                  refs = after[target]["similar_templates"]
+                  assert refs and len(refs) == len(set(refs))
+                  assert all(r.split("/")[:2] == key.split("/")[:2] and "/train/good/" in r and Path(r).stem.split("_")[0] == Path(key).stem.split("_")[0] for r in refs)
+                  expected["similar_templates"] = refs
+                  count += 1
+              if key == old:
+                  expected["image_path"] = new
+              assert expected == after[target], key
+          assert count == 2968
+          changed = set(subprocess.check_output(["git", "diff", "--name-only"], text=True).splitlines())
+          assert changed == {"README.md", "dataset/MMAD/README.md", "dataset/MMAD/mmad.json"}, changed
+          subprocess.run(["git", "diff", "--check"], check=True)
+          print("Validated 8366 samples; 2968 GoodsAD template lists and pill/008 corrected.")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md dataset/MMAD/README.md dataset/MMAD/mmad.json
+          git commit -m "Fix GoodsAD same-product templates and remaining pill image reference"
+          git push origin HEAD:refs/heads/maintenance/mmad-annotations-20261022
