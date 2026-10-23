@@ -16,6 +16,7 @@
 - What are the key challenges in industrial anomaly detection for MLLMs?
 
 ## 📜 News
+- **[2026-10-23]** The [interactive MMAD leaderboard](https://huggingface.co/spaces/jiang-cc/MMAD-Leaderboard) is live, with searchable results, task sorting and protocol evidence.
 - **[2026-10-23]** Released the [MMAD leaderboard](LEADERBOARD.md), with strict standard 1-shot eligibility, primary-source evidence, and separate tables for adapted, knowledge-augmented and nonstandard results.
 - **[2026-10-22]** Released [MMAD-BBox](dataset/MMAD/README.md#mmad-bbox-localization-annotations): 5,076 localization annotations, BBox-Mask IoU scoring, annotation rebuilding, and built-in scoring checks.
 - **[2026-10-22]** Corrected GoodsAD `similar_templates` to use normal training images of the same product ID, and corrected the remaining pill image reference from `DS-MVTec/pill/image/good/008.png` to `MVTec-AD/pill/test/good/008.png`. See the [dataset correction notes](dataset/MMAD/README.md#annotation-corrections-2026-10-22) before comparing evaluation results.
@@ -90,6 +91,12 @@ python llava_query.py --model-path ../../LLaVA/llava-v1.6-34b/ --dtype 4bit
 ## Domain Knowledge
 
 Our experts, with the assistance of large language models, have summarized the detection content for each category in MMAD, including descriptions of normal features, anomaly classifications, and detailed descriptions for each category. The data can be found in [dataset/MMAD/domain_knowledge.json](https://github.com/jam-cc/MMAD/blob/main/dataset/MMAD/domain_knowledge.json). 
+
+## MMAD Leaderboard
+
+[Open the interactive leaderboard](https://huggingface.co/spaces/jiang-cc/MMAD-Leaderboard) · [Read the evidence ledger](LEADERBOARD.md) · [Submit a result](https://github.com/jam-cc/MMAD/issues/new?title=Leaderboard%3A%20result%20or%20correction)
+
+The main track compares standard 1-shot results without MMAD/source-data adaptation or added domain knowledge. Training adaptation, knowledge retrieval and nonstandard/pending results have separate views. The page reads `LEADERBOARD.md` from this repository; maintain results there rather than editing a second table. `index.html` is the website source, mirrored to the free static Hugging Face Space.
 
 ## 👨‍💻 Todo
 
