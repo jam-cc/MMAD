@@ -1,8 +1,0 @@
-{
-  "cached_prediction_rows_checked": 600,
-  "exact_equality_to_existing_region_iou": true,
-  "gt_source": "mmad_bbox.json",
-  "old_implementation": "/hdd1/jiangxi/AD-Copilot/rebuttal/structure_diagnostics/run_bbox_grounding.py",
-  "new_implementation": "bbox_mask_iou.py",
-  "note": "Compatibility check on cached predictions; no new model inference or paper-reproduction claim"
-}

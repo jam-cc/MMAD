@@ -7,7 +7,63 @@ import hashlib
 import json
 from pathlib import Path
 
-from bbox_mask_iou import bbox_mask_iou
+from numbers import Integral, Real
+import math
+
+import numpy as np
+
+
+def validate_boxes(boxes) -> None:
+    if not isinstance(boxes, (list, tuple, np.ndarray)):
+        raise ValueError("Boxes must be a sequence of [x1, y1, x2, y2] coordinates")
+    for box in boxes:
+        if not isinstance(box, (list, tuple, np.ndarray)) or len(box) != 4:
+            raise ValueError(f"Expected four coordinates per box: {box!r}")
+        if any(isinstance(v, (bool, np.bool_)) or not isinstance(v, Real)
+               or not math.isfinite(v) for v in box):
+            raise ValueError(f"Box coordinates must be finite numbers: {box!r}")
+
+
+def rasterize_boxes(boxes, *, width: int, height: int) -> np.ndarray:
+    """Round to nearest integer, clip to the image, order endpoints, fill xyxy.
+
+    This reproduces run_bbox_grounding.py:raster, including Python's round().
+    Right and bottom endpoints are exclusive. Overlapping boxes are OR-ed.
+    """
+    if (isinstance(width, bool) or isinstance(height, bool)
+            or not isinstance(width, Integral) or not isinstance(height, Integral)
+            or width <= 0 or height <= 0):
+        raise ValueError("Image width and height must be positive integers")
+    validate_boxes(boxes)
+    region = np.zeros((height, width), dtype=bool)
+    for x0, y0, x1, y1 in boxes:
+        x0, x1 = sorted(max(0, min(width, int(round(x)))) for x in (x0, x1))
+        y0, y1 = sorted(max(0, min(height, int(round(y)))) for y in (y0, y1))
+        region[y0:y1, x0:x1] = True
+    return region
+
+
+def bbox_mask_iou(pred_boxes, gt_boxes, *, width: int, height: int) -> float:
+    """|union(pred) & union(GT boxes)| / |union(pred) | union(GT boxes)|.
+
+    GT inputs are the connected-component BOXES, rather than the irregular
+    source masks. No instance matching, confidence ranking or NMS is used.
+    An empty union scores zero, matching the existing evaluation code.
+    """
+    validate_boxes(pred_boxes)
+    validate_boxes(gt_boxes)
+    if len(pred_boxes) == 0 or len(gt_boxes) == 0:
+        # Validate dimensions even when there is no region to rasterize.
+        if (isinstance(width, bool) or isinstance(height, bool)
+                or not isinstance(width, Integral) or not isinstance(height, Integral)
+                or width <= 0 or height <= 0):
+            raise ValueError("Image width and height must be positive integers")
+        return 0.0
+    predicted = rasterize_boxes(pred_boxes, width=width, height=height)
+    truth = rasterize_boxes(gt_boxes, width=width, height=height)
+    union = np.count_nonzero(predicted | truth)
+    return float(np.count_nonzero(predicted & truth) / union) if union else 0.0
+
 
 
 THRESHOLDS = (0.1, 0.2, 0.3, 0.5)
@@ -78,14 +134,84 @@ def evaluate(annotations: dict, predictions: dict) -> tuple[dict, list[dict]]:
     return report, rows
 
 
+def self_test() -> None:
+    """Run the built-in metric and aggregation checks; needs NumPy only."""
+    import sys
+    import tempfile
+    import unittest
+    metric = evaluator = sys.modules[__name__]
+
+    class MetricTests(unittest.TestCase):
+        def test_covering_two_gt_components_includes_the_gap_in_union(self):
+            self.assertAlmostEqual(metric.bbox_mask_iou(
+                [[0, 0, 6, 2]], [[0, 0, 2, 2], [4, 0, 6, 2]], width=6, height=2), 2 / 3)
+
+        def test_overlapping_or_duplicate_predictions_are_not_counted_twice(self):
+            self.assertEqual(metric.bbox_mask_iou(
+                [[0, 0, 3, 2], [1, 0, 4, 2], [1, 0, 4, 2]],
+                [[0, 0, 4, 2]], width=4, height=2), 1.0)
+
+        def test_empty_prediction_and_empty_union_score_zero(self):
+            self.assertEqual(metric.bbox_mask_iou([], [[0, 0, 1, 1]], width=2, height=2), 0)
+            self.assertEqual(metric.bbox_mask_iou([], [], width=2, height=2), 0)
+
+        def test_clip_reverse_round_and_exclusive_boundary(self):
+            self.assertEqual(metric.bbox_mask_iou(
+                [[5, 3, -1, -2]], [[0, 0, 4, 2]], width=4, height=2), 1)
+            self.assertEqual(metric.bbox_mask_iou(
+                [[1.6, 1.6, 3, 3]], [[2, 2, 3, 3]], width=3, height=3), 1)
+
+        def test_nonfinite_and_malformed_boxes_fail(self):
+            for boxes in [[[0, 0, float("nan"), 1]], [[0, 0, 1]], [[False, 0, 1, 1]]]:
+                with self.assertRaises(ValueError):
+                    metric.bbox_mask_iou(boxes, [[0, 0, 1, 1]], width=2, height=2)
+
+
+    class EvaluationTests(unittest.TestCase):
+        def setUp(self):
+            self.annotations = {k: {"width": 2, "height": 2, "gt_boxes": [[0, 0, 2, 2]],
+                                      "dataset": "test", "category": "part"} for k in ["a", "b"]}
+
+        def test_missing_rows_stay_in_the_full_benchmark_denominator(self):
+            report, rows = evaluator.evaluate(self.annotations, {"a": {"pred_boxes": [[0, 0, 2, 2]]}})
+            self.assertEqual(report["samples"], 2)
+            self.assertEqual(report["missing_predictions"], 1)
+            self.assertEqual(report["miou"], 0.5)
+            self.assertEqual(report["accuracy_at_iou"]["0.5"], 0.5)
+            self.assertEqual(len(rows), 2)
+
+        def test_duplicate_unknown_and_unconverted_coordinates_fail(self):
+            with tempfile.TemporaryDirectory() as tmp:
+                path = Path(tmp) / "predictions.jsonl"
+                path.write_text('{"image_path":"a","pred_boxes":[]}\n' * 2)
+                with self.assertRaisesRegex(ValueError, "Duplicate"):
+                    evaluator.load_predictions(path)
+            with self.assertRaisesRegex(ValueError, "Unknown"):
+                evaluator.evaluate(self.annotations, {"c": {"pred_boxes": []}})
+            with self.assertRaisesRegex(ValueError, "original"):
+                evaluator.evaluate(self.annotations, {"a": {"pred_boxes": [], "coordinate_space": "processed"}})
+
+
+    suite = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(case)
+                               for case in (MetricTests, EvaluationTests))
+    if not unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful():
+        raise SystemExit(1)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--annotations", type=Path, default=Path(__file__).with_name("mmad_bbox.json"))
-    parser.add_argument("--predictions", type=Path, required=True, help="JSONL: image_path, pred_boxes in original pixels")
-    parser.add_argument("--output", type=Path, required=True, help="Summary JSON; also writes <stem>.per_image.jsonl")
+    parser.add_argument("--annotations", type=Path, default=Path("mmad_bbox.json"))
+    parser.add_argument("--predictions", type=Path, help="JSONL: image_path, pred_boxes in original pixels")
+    parser.add_argument("--output", type=Path, help="Summary JSON; also writes <stem>.per_image.jsonl")
     parser.add_argument("--condition", help="Explicitly select one condition from diagnostic JSONL")
     parser.add_argument("--require-complete", action="store_true", help="Fail if any benchmark image lacks a prediction row")
+    parser.add_argument("--self-test", action="store_true", help="Run built-in checks without annotations or predictions")
     args = parser.parse_args()
+    if args.self_test:
+        self_test()
+        return
+    if args.predictions is None or args.output is None:
+        parser.error("--predictions and --output are required unless --self-test is used")
     per_image = args.output.with_name(args.output.stem + ".per_image.jsonl")
     inputs = {args.annotations.resolve(), args.predictions.resolve()}
     if args.output.resolve() in inputs or per_image.resolve() in inputs:
