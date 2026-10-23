@@ -102,7 +102,7 @@ Our experts, with the assistance of large language models, have summarized the d
 
 ## BibTex Citation
 
-If you find this paper and repository useful, please cite our paper☺️.
+If you use MMAD in your research, please cite the MMAD paper below. For MMAD-BBox, please also cite [AD-Copilot](https://arxiv.org/abs/2603.13779), which introduces the bounding-box localization benchmark.
 ```bibtex
 @inproceedings{Jiang2024MMAD,
 title={MMAD: The Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection},
@@ -110,5 +110,17 @@ author={Xi Jiang and Jian Li and Hanqiu Deng and Yong Liu and Bin-Bin Gao and Yi
 booktitle={The Thirteenth International Conference on Learning Representations},
 year={2025},
 url={https://openreview.net/forum?id=JDiER86r8v}
+}
+```
+
+```bibtex
+@misc{jiang2026adcopilot,
+  title={AD-Copilot: A Vision-Language Assistant for Industrial Anomaly Detection via Visual In-context Comparison},
+  author={Xi Jiang and Yue Guo and Jian Li and Yong Liu and Bin-Bin Gao and Hanqiu Deng and Jun Liu and Heng Zhao and Chengjie Wang and Feng Zheng},
+  year={2026},
+  eprint={2603.13779},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2603.13779}
 }
 ```
