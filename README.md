@@ -16,6 +16,7 @@
 - What are the key challenges in industrial anomaly detection for MLLMs?
 
 ## 📜 News
+- **[2026-10-23]** Released the [MMAD leaderboard](LEADERBOARD.md), with strict standard 1-shot eligibility, primary-source evidence, and separate tables for adapted, knowledge-augmented and nonstandard results.
 - **[2026-10-22]** Released [MMAD-BBox](dataset/MMAD/README.md#mmad-bbox-localization-annotations): 5,076 localization annotations, BBox-Mask IoU scoring, annotation rebuilding, and built-in scoring checks.
 - **[2026-10-22]** Corrected GoodsAD `similar_templates` to use normal training images of the same product ID, and corrected the remaining pill image reference from `DS-MVTec/pill/image/good/008.png` to `MVTec-AD/pill/test/good/008.png`. See the [dataset correction notes](dataset/MMAD/README.md#annotation-corrections-2026-10-22) before comparing evaluation results.
 - **[2026-01-14]** To facilitate evaluation, we plan to create a more streamlined version with fewer errors, and we welcome reviews and reports of any data issues.
@@ -98,7 +99,7 @@ Our experts, with the assistance of large language models, have summarized the d
 - [x] Release full version with images included on Hugging Face
 - [x] Release domain knowledge
 - [x] Release human baseline
-- [ ] Maintain a leaderboard for MMAD
+- [x] Release and maintain a [leaderboard for MMAD](LEADERBOARD.md) (manual review; last literature check: 2026-10-23)
 
 ## BibTex Citation
 
